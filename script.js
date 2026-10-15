@@ -24,7 +24,6 @@ const copyButton = document.querySelector("#copy-enquiry");
 const shareButton = document.querySelector("#share-enquiry");
 const whatsappButton = document.querySelector("#whatsapp-enquiry");
 const downloadButton = document.querySelector("#download-enquiry");
-const submitEnquiryButton = document.querySelector("#submit-enquiry");
 const detailsField = document.querySelector("#details");
 const detailsCount = document.querySelector("#details-count");
 
@@ -33,6 +32,7 @@ if (form && preview && status) {
     event.preventDefault();
     if (!form.reportValidity()) return;
     const data = new FormData(form);
+    if (String(data.get("_gotcha") || "").trim()) return;
     const message = [
       "Hello Kioo Studio,",
       "",
@@ -62,7 +62,7 @@ if (form && preview && status) {
       budget: String(data.get("budget") || "Not sure yet").trim(),
       message,
       _subject: "New Kioo Studio enquiry",
-      _gotcha: ""
+      _gotcha: String(data.get("_gotcha") || "").trim()
     };
     try {
       const response = await fetch("https://formsubmit.app/f/6jnzxw4btk", {
@@ -76,10 +76,12 @@ if (form && preview && status) {
       }
       status.textContent = "Thank you — your enquiry has been submitted. If you don't hear back, please contact us on WhatsApp.";
       form.reset();
+      if (output) output.hidden = true;
       if (detailsCount) detailsCount.textContent = "0 / 800 characters";
       if (submitButton) submitButton.textContent = "Enquiry sent ✓";
     } catch (error) {
-      status.textContent = "We couldn't confirm your enquiry was sent. Please try again or use WhatsApp below. " + (error && error.message ? error.message : "");
+      if (output) output.hidden = false;
+      status.textContent = "We couldn't confirm your enquiry was sent. Your details are still available below—try again or use email or WhatsApp to send them.";
       if (submitButton) {
         submitButton.disabled = false;
         submitButton.textContent = "Try sending again ↗";
