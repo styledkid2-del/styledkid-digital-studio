@@ -43,7 +43,7 @@ if (form && output && preview) {
       "Details: " + (data.get("details") || "Not provided"),
       "",
       "Please let me know the next steps."
-    ].join("\\n");
+    ].join("\n");
     output.hidden = false;
     if (status) status.textContent = "Your enquiry is prepared. Choose Send by email to open your email app, or Send on WhatsApp. You must press Send in the app to deliver it.";
     output.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
