@@ -22,13 +22,15 @@ const output = document.querySelector("#enquiry-output");
 const preview = document.querySelector("#enquiry-preview");
 const copyButton = document.querySelector("#copy-enquiry");
 const shareButton = document.querySelector("#share-enquiry");
+const whatsappButton = document.querySelector("#whatsapp-enquiry");
 const downloadButton = document.querySelector("#download-enquiry");
 const detailsField = document.querySelector("#details");
 const detailsCount = document.querySelector("#details-count");
 
 if (form && output && preview) {
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    const submitButton = form.querySelector('button[type="submit"]');
     const data = new FormData(form);
     preview.value = [
       "Hello Kioo Studio,",
@@ -44,8 +46,46 @@ if (form && output && preview) {
       "Please let me know the next steps."
     ].join("\n");
     output.hidden = false;
-    if (status) status.textContent = "Your enquiry is ready. Copy or download it, then send it using a contact method confirmed by the studio.";
-    output.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
+    if (submitButton) submitButton.disabled = true;
+    if (status) status.textContent = "Sending your enquiry by email…";
+    const payload = {
+      name: data.get("name") || "",
+      business: data.get("business") || "",
+      service: data.get("need") || "",
+      budget: data.get("budget") || "Not sure yet",
+      details: data.get("details") || "Not provided",
+      message: preview.value,
+      _subject: "New Kioo Studio enquiry",
+      _template: "table",
+      _captcha: "false",
+      _honey: ""
+    };
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/doreennkonge81@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json();
+      if (!response.ok || result.success === false || result.success === "false") {
+        throw new Error("Email service did not confirm the submission.");
+      }
+      if (status) status.textContent = "Email service accepted the enquiry request. If this is the first submission, check the studio inbox for FormSubmit's activation email. You can also send the message on WhatsApp below.";
+    } catch {
+      if (status) status.textContent = "Email delivery could not be confirmed. Use Send on WhatsApp below, or copy/download the message as a backup.";
+    } finally {
+      if (submitButton) submitButton.disabled = false;
+      output.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
+    }
+  });
+}
+
+if (whatsappButton && preview && status) {
+  whatsappButton.addEventListener("click", () => {
+    const phone = "254740354169";
+    const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(preview.value);
+    window.open(url, "_blank", "noopener,noreferrer");
+    status.textContent = "WhatsApp opened with your enquiry. Review the message and tap Send in WhatsApp to deliver it.";
   });
 }
 
