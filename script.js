@@ -46,7 +46,7 @@ if (form && preview && status) {
       "Details: " + (data.get("details") || "Not provided"),
       "",
       "Please let me know the next steps."
-    ].join("\\n");
+    ].join("\n");
     preview.value = message;
     const submitButton = form.querySelector('button[type="submit"]');
     if (submitButton) {
