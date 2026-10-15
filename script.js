@@ -28,11 +28,12 @@ const submitEnquiryButton = document.querySelector("#submit-enquiry");
 const detailsField = document.querySelector("#details");
 const detailsCount = document.querySelector("#details-count");
 
-if (form && output && preview) {
-  form.addEventListener("submit", (event) => {
+if (form && preview && status) {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (!form.reportValidity()) return;
     const data = new FormData(form);
-    preview.value = [
+    const message = [
       "Hello Kioo Studio,",
       "",
       "I'd like to enquire about your services.",
@@ -45,35 +46,21 @@ if (form && output && preview) {
       "Details: " + (data.get("details") || "Not provided"),
       "",
       "Please let me know the next steps."
-    ].join("\n");
-    output.hidden = false;
-    if (status) status.textContent = "Your enquiry is ready. Choose Send enquiry to Kioo to submit it, or use email or WhatsApp as alternatives.";
-    output.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
-  });
-}
-
-const emailButton = document.querySelector("#email-enquiry");
-if (emailButton && preview && status) {
-  emailButton.addEventListener("click", () => {
-    const subject = "Kioo Studio enquiry";
-    const body = preview.value;
-    window.location.href = "mailto:doreennkonge81@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    status.textContent = "Your email app should open with the enquiry addressed to the studio. Review it and press Send to deliver it.";
-  });
-}
-
-
-if (submitEnquiryButton && preview && status && form) {
-  submitEnquiryButton.addEventListener("click", async () => {
-    if (!form.reportValidity()) return;
-    submitEnquiryButton.disabled = true;
-    submitEnquiryButton.textContent = "Sending…";
-    status.textContent = "Submitting your enquiry through our form provider…";
-    const data = new FormData(form);
+    ].join("\\n");
+    preview.value = message;
+    const submitButton = form.querySelector('button[type="submit"]');
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending enquiry…";
+    }
+    status.textContent = "Sending your enquiry securely through our form provider…";
     const payload = {
       name: String(data.get("name") || "").trim(),
       email: String(data.get("email") || "").trim(),
-      message: preview.value,
+      business: String(data.get("business") || "").trim(),
+      service: String(data.get("need") || "").trim(),
+      budget: String(data.get("budget") || "Not sure yet").trim(),
+      message,
       _subject: "New Kioo Studio enquiry",
       _gotcha: ""
     };
@@ -87,15 +74,29 @@ if (submitEnquiryButton && preview && status && form) {
       if (!response.ok || !result.ok) {
         throw new Error((result && result.error && result.error.message) || "The form provider did not accept the enquiry.");
       }
-      status.textContent = "Your enquiry was accepted by the form service. Email delivery may depend on your FormSubmit notification settings.";
-      submitEnquiryButton.textContent = "Enquiry submitted ✓";
+      status.textContent = "Thank you — your enquiry has been submitted. If you don't hear back, please contact us on WhatsApp.";
+      form.reset();
+      if (detailsCount) detailsCount.textContent = "0 / 800 characters";
+      if (submitButton) submitButton.textContent = "Enquiry sent ✓";
     } catch (error) {
-      status.textContent = "We couldn't confirm submission. Please try again, or use email or WhatsApp below. " + (error && error.message ? error.message : "");
-      submitEnquiryButton.disabled = false;
-      submitEnquiryButton.textContent = "Send enquiry to Kioo ↗";
+      status.textContent = "We couldn't confirm your enquiry was sent. Please try again or use WhatsApp below. " + (error && error.message ? error.message : "");
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Try sending again ↗";
+      }
     }
   });
 }
+const emailButton = document.querySelector("#email-enquiry");
+if (emailButton && preview && status) {
+  emailButton.addEventListener("click", () => {
+    const subject = "Kioo Studio enquiry";
+    const body = preview.value;
+    window.location.href = "mailto:doreennkonge81@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    status.textContent = "Your email app should open with the enquiry addressed to the studio. Review it and press Send to deliver it.";
+  });
+}
+
 
 if (whatsappButton && preview && status) {
   whatsappButton.addEventListener("click", () => {
