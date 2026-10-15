@@ -94,3 +94,12 @@ if (menuButton && nav) {
     }
   });
 }
+
+
+document.querySelectorAll("[data-enquiry-value]").forEach(function (link) {
+  link.addEventListener("click", function () {
+    const field = document.getElementById("need");
+    const value = link.getAttribute("data-enquiry-value");
+    if (field && value) field.value = value;
+  });
+});
