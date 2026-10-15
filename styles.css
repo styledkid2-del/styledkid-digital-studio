@@ -215,3 +215,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #b9
 /* Keep the package we recommend visually distinct using its actual class. */
 .price-row.featured-price{background:#e3eadc;border:1px solid rgba(23,42,36,.12);border-radius:4px;padding:22px 18px}
 .price-row.featured-price .price-amount strong{color:#9b5035}
+
+
+/* Accessible anti-spam honeypot: visually hidden from people, still present in the form. */
+.form-trap{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.form-submit:disabled{opacity:.7;cursor:wait;transform:none}
