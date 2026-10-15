@@ -4,6 +4,8 @@ A mobile-first static website concept for an AI-assisted digital studio serving 
 
 ## Website files
 - `index.html` — landing page, service cards, starter packages and enquiry form
+- `privacy.html` — plain-language notice explaining the static form's current behaviour
+- `404.html` — branded not-found page
 - `styles.css` — responsive visual design and mobile navigation styles
 - `script.js` — menu behaviour and enquiry email draft
 - `favicon.svg` — simple brand icon
@@ -23,6 +25,7 @@ This project is plain HTML, CSS and JavaScript; it does not require a build comm
 - Review package prices, deliverables and turnaround times before advertising them.
 - Confirm which services you can reliably deliver, and do not promise custom AI features or integrations that have not been built.
 - Test all links, the enquiry form, mobile layout and keyboard navigation on the published version.
+- Confirm the privacy notice matches any real services, tools or data collection added before launch.
 
 ## Domain safety
 The existing `styledkid.co.ke` WordPress site is a separate project. Do not overwrite it or change DNS until the owner decides whether to keep the current website and use a subdomain such as `studio.styledkid.co.ke`, or intentionally replace the root-domain website. A root domain cannot point to both hosting destinations at once.
