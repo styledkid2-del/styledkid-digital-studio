@@ -1,6 +1,6 @@
 # Kioo Studio website
 
-A mobile-first static website concept for an AI-assisted digital studio serving small businesses in Kenya.
+A mobile-first static website concept for a digital studio serving small businesses in Kenya.
 
 ## Website files
 - `index.html` — landing page, service cards, starter packages and enquiry form
@@ -9,18 +9,18 @@ A mobile-first static website concept for an AI-assisted digital studio serving 
 - `styles.css` — responsive visual design and mobile navigation styles
 - `script.js` — accessible mobile menu, enquiry preview, email-app and WhatsApp handoff, copy fallback, optional native device sharing, and local text-file download
 - `favicon.svg` — simple brand icon
-- `.github/workflows/pages.yml` — GitHub Pages deployment workflow
+- `.github/workflows/quality.yml` — automated static-site and JavaScript checks
 
 ## Hosting
-The live site is deployed on Vercel and connected to this repository's `main` branch: [https://kioo-studio.vercel.app](https://kioo-studio.vercel.app). Updates pushed to `main` can trigger a new deployment. The site is plain HTML, CSS and JavaScript and does not require a build command.
+The production site is deployed on Vercel and connected to this repository's `main` branch: [https://kioo-studio.vercel.app](https://kioo-studio.vercel.app). Updates pushed to `main` can trigger a new deployment. The site is plain HTML, CSS and JavaScript and does not require a build command.
 
-The GitHub Pages workflow remains in the repository from the earlier setup, but GitHub Pages is not the current production host.
+Vercel is the production host. The unused GitHub Pages deployment workflow has been removed so it no longer creates a misleading failed deployment check.
 
 ## Before accepting customers
 - **Confirm the business name.** “Kioo Studio” is a working name and should be checked before investing in branding.
 - **Test enquiry delivery end-to-end.** The form does not send to a server. The email button opens the visitor’s email app with a prepared message addressed to `doreennkonge81@gmail.com`; the WhatsApp button opens a prepared message for `+254740354169`. The visitor must review and press Send in the chosen app. Neither delivery path has been independently verified end-to-end.
 - Review package prices, deliverables and turnaround times before advertising them.
-- Confirm which services you can reliably deliver, and do not promise custom AI features or integrations that have not been built.
+- Confirm which services can reliably be delivered, and do not promise custom AI features or integrations that have not been built.
 - Test all links, the enquiry form, mobile layout and keyboard navigation on the published version.
 - Confirm the privacy notice matches any real services, tools or data collection added before launch.
 
@@ -28,4 +28,4 @@ The GitHub Pages workflow remains in the repository from the earlier setup, but 
 The existing `styledkid.co.ke` WordPress site is a separate project. Do not overwrite it or change DNS until the owner decides whether to keep the current website and use a subdomain such as `studio.styledkid.co.ke`, or intentionally replace the root-domain website. A root domain cannot point to both hosting destinations at once.
 
 ## Costs and limits
-The static files and GitHub Pages hosting can be free. A custom domain is already owned by the user, but email, paid tools, advertising and third-party services may cost money. The enquiry form does not send data to a server: visitors must use their own email app or WhatsApp and press Send. No OpenAI API key, paid AI integration, customer database, booking system or payment processing is included in this starter website.
+The current site is static and can be hosted on Vercel's free tier subject to its current limits. The enquiry form does not send data to a server: visitors must use their own email app or WhatsApp and press Send. No OpenAI API key, paid AI integration, customer database, booking system or payment processing is included in this starter website. An automatic form service would require separate setup, any required email verification, and an updated privacy notice.
