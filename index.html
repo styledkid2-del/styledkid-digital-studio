@@ -68,7 +68,7 @@
         "name": "Does this form send my enquiry to you?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Choose “Send enquiry to Kioo” to submit your details through FormSubmit, a third-party form processor. You can also choose email or WhatsApp, where you must press Send in that app."
+          "text": "Submit this form to send your details through FormSubmit, a third-party form processor. WhatsApp is also available as an alternative."
         }
       }
     ]
@@ -179,7 +179,7 @@
         <details><summary>Do I need to know exactly what I want? <span>+</span></summary><p>No. Tell us what your business does and what feels difficult right now. We can help you choose a sensible first step before you commit to a package.</p></details>
         <details><summary>Are the prices fixed? <span>+</span></summary><p>The prices shown are starting estimates in Kenyan shillings. The final quote depends on the agreed work, and you can review it before deciding whether to proceed.</p></details>
         <details><summary>Will you manage my social media or website every month? <span>+</span></summary><p>The packages describe starter projects, not an automatic monthly retainer. Any ongoing support, posting schedule or maintenance would need to be discussed and agreed separately.</p></details>
-        <details><summary>Does this form send my enquiry to you? <span>+</span></summary><p>The form prepares your enquiry in your browser. You can open your email app or WhatsApp with the message ready, but you must review it and press Send in that app. The website does not send it automatically.</p></details>
+        <details><summary>Does this form send my enquiry to you? <span>+</span></summary><p>You can submit your enquiry directly here without opening your email app. WhatsApp is also available if you prefer to message us.</p></details>
       </div>
     </section>
 
@@ -191,8 +191,8 @@
         <label for="need">Which service or package interests you?</label><select id="need" name="need" required><option value="" disabled selected>Choose a starting point</option><option>Brand basics</option><option>Social content</option><option>Digital launch kit / simple website</option><option>The Essentials</option><option>The Content Kit</option><option>The Digital Starter</option><option>I'm not sure yet</option></select>
         <label for="budget">Comfortable starting budget</label><select id="budget" name="budget"><option value="Not sure yet">Not sure yet</option><option>Under KSh 2,000</option><option>KSh 2,000–5,000</option><option>KSh 5,000–10,000</option><option>Let's discuss the scope first</option></select>
         <label for="details">Anything else we should know? <span>(optional)</span></label><textarea id="details" name="details" rows="3" maxlength="800" aria-describedby="details-count" placeholder="Tell us what you're trying to achieve…"></textarea><p class="character-count" id="details-count">0 / 800 characters</p>
-        <button class="button button-dark form-submit" type="submit">Prepare my enquiry <span>↗</span></button>
-        <p class="form-hint">Complete the form and choose Send enquiry to Kioo to submit it through FormSubmit. Email and WhatsApp remain alternative options.</p><p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        <button class="button button-dark form-submit" type="submit">Send enquiry <span>↗</span></button>
+        <p class="form-hint">Your enquiry will be sent directly through our secure form provider. You do not need to open your email app.</p><p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         <div class="enquiry-output" id="enquiry-output" hidden>
           <label for="enquiry-preview">Your enquiry is ready</label>
           <textarea id="enquiry-preview" rows="9" readonly></textarea>
@@ -204,7 +204,7 @@
             <button class="button button-outline" id="share-enquiry" type="button" hidden>Share enquiry <span>↗</span></button>
             <button class="button button-outline" id="download-enquiry" type="button">Download .txt <span>↓</span></button>
           </div>
-          <p class="form-hint">Send enquiry to Kioo submits your details through FormSubmit, our third-party form processor. Email and WhatsApp open prepared messages that you must send yourself. Copy and download remain available as backups.</p>
+          <p class="form-hint">Submitting this form sends your details through FormSubmit. The WhatsApp option opens a prepared message that you must send yourself.</p>
         </div>
       </form>
     </section>
