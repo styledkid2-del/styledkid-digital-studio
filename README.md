@@ -7,7 +7,7 @@ A mobile-first static website concept for an AI-assisted digital studio serving 
 - `privacy.html` — plain-language notice explaining the static form's current behaviour
 - `404.html` — branded not-found page
 - `styles.css` — responsive visual design and mobile navigation styles
-- `script.js` — accessible mobile menu, enquiry email submission through FormSubmit, WhatsApp handoff, enquiry preview, copy fallback, optional native device sharing, and local text-file download
+- `script.js` — accessible mobile menu, enquiry preview, email-app and WhatsApp handoff, copy fallback, optional native device sharing, and local text-file download
 - `favicon.svg` — simple brand icon
 - `.github/workflows/pages.yml` — GitHub Pages deployment workflow
 
@@ -28,4 +28,4 @@ The GitHub Pages workflow remains in the repository from the earlier setup, but 
 The existing `styledkid.co.ke` WordPress site is a separate project. Do not overwrite it or change DNS until the owner decides whether to keep the current website and use a subdomain such as `studio.styledkid.co.ke`, or intentionally replace the root-domain website. A root domain cannot point to both hosting destinations at once.
 
 ## Costs and limits
-The static files and GitHub Pages hosting can be free. A custom domain is already owned by the user, but email, paid tools, advertising and third-party services may cost money. No OpenAI API key, paid AI integration, customer database, booking system or payment processing is included in this starter website.
+The static files and GitHub Pages hosting can be free. A custom domain is already owned by the user, but email, paid tools, advertising and third-party services may cost money. The enquiry form does not send data to a server: visitors must use their own email app or WhatsApp and press Send. No OpenAI API key, paid AI integration, customer database, booking system or payment processing is included in this starter website.
