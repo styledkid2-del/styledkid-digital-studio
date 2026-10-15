@@ -12,26 +12,58 @@ if (menuButton && nav) {
     menuButton.setAttribute("aria-label", "Open menu");
   }));
 }
+
 const year = document.querySelector("#year");
 if (year) year.textContent = new Date().getFullYear();
 
 const form = document.querySelector("#project-form");
 const status = document.querySelector("#form-status");
-if (form) {
+const output = document.querySelector("#enquiry-output");
+const preview = document.querySelector("#enquiry-preview");
+const copyButton = document.querySelector("#copy-enquiry");
+const emailButton = document.querySelector("#email-enquiry");
+const enquirySubject = "New project enquiry — Kioo Studio";
+
+if (form && output && preview) {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const data = new FormData(form);
-    const subject = encodeURIComponent("New project enquiry — Kioo Studio");
-    const body = encodeURIComponent(
-      "Hello Kioo Studio,\n\nI'd like to enquire about your services.\n\n" +
-      "Name: " + (data.get("name") || "") + "\n" +
-      "Business / idea: " + (data.get("business") || "") + "\n" +
-      "What I need: " + (data.get("need") || "") + "\n" +
-      "Budget: " + (data.get("budget") || "Not sure yet") + "\n" +
-      "Details: " + (data.get("details") || "Not provided") + "\n\n" +
+    preview.value = [
+      "Hello Kioo Studio,",
+      "",
+      "I'd like to enquire about your services.",
+      "",
+      "Name: " + (data.get("name") || ""),
+      "Business / idea: " + (data.get("business") || ""),
+      "What I need: " + (data.get("need") || ""),
+      "Budget: " + (data.get("budget") || "Not sure yet"),
+      "Details: " + (data.get("details") || "Not provided"),
+      "",
       "Please let me know the next steps."
-    );
-    if (status) status.textContent = "Your email app should open with the enquiry ready to review. Add the studio's confirmed email address before launch.";
+    ].join("\n");
+    output.hidden = false;
+    if (status) status.textContent = "Your enquiry is prepared below. Copy it or open an email draft after checking the destination address.";
+    output.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+}
+
+if (copyButton && preview && status) {
+  copyButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(preview.value);
+      status.textContent = "Enquiry copied. You can paste it into an email or message.";
+    } catch {
+      preview.focus();
+      preview.select();
+      status.textContent = "The enquiry is selected. Press Ctrl+C to copy it.";
+    }
+  });
+}
+
+if (emailButton && preview) {
+  emailButton.addEventListener("click", () => {
+    const subject = encodeURIComponent(enquirySubject);
+    const body = encodeURIComponent(preview.value);
     window.location.href = "mailto:hello@styledkid.co.ke?subject=" + subject + "&body=" + body;
   });
 }
