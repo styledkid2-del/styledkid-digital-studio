@@ -18,7 +18,7 @@ Vercel is the production host. The unused GitHub Pages deployment workflow has b
 
 ## Before accepting customers
 - **Confirm the business name.** “Kioo Studio” is a working name and should be checked before investing in branding.
-- **Test enquiry delivery end-to-end.** The primary enquiry button submits the form to FormSubmit at `https://formsubmit.app/f/6jnzxw4btk`. Confirm the FormSubmit notification settings and complete a real test submission before relying on email delivery. Email and WhatsApp remain fallbacks; visitors must press Send in the chosen app.
+- **Monitor enquiry delivery.** The primary form submits to FormSubmit at `https://formsubmit.app/f/6jnzxw4btk`. A successful dashboard submission confirms the provider accepted it, but notification email delivery should still be verified. If the form fails, email and WhatsApp fallbacks appear; visitors must press Send in the chosen app. A hidden honeypot field helps filter simple automated spam.
 - Review package prices, deliverables and turnaround times before advertising them.
 - Confirm which services can reliably be delivered, and do not promise custom AI features or integrations that have not been built.
 - Test all links, the enquiry form, mobile layout and keyboard navigation on the published version.
