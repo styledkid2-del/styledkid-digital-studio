@@ -7,7 +7,7 @@ A mobile-first static website concept for an AI-assisted digital studio serving 
 - `privacy.html` — plain-language notice explaining the static form's current behaviour
 - `404.html` — branded not-found page
 - `styles.css` — responsive visual design and mobile navigation styles
-- `script.js` — menu behaviour and enquiry email draft
+- `script.js` — menu behaviour, enquiry preview, copy fallback and email draft
 - `favicon.svg` — simple brand icon
 - `.github/workflows/pages.yml` — GitHub Pages deployment workflow
 
@@ -21,7 +21,7 @@ This project is plain HTML, CSS and JavaScript; it does not require a build comm
 
 ## Before accepting customers
 - **Confirm the business name.** “Kioo Studio” is a working name and should be checked before investing in branding.
-- **Confirm the contact address.** The enquiry form currently opens an email draft addressed to `hello@styledkid.co.ke`. Verify that this mailbox exists and can receive messages, or change the address in `script.js`. The form does not send email automatically and this static site has no form-processing backend.
+- **Confirm the contact address.** The enquiry form builds a preview that visitors can copy, with an optional email-draft action addressed to `hello@styledkid.co.ke`. Verify that this mailbox exists and can receive messages, or change the address in `script.js`. The form does not send email automatically and this static site has no form-processing backend.
 - Review package prices, deliverables and turnaround times before advertising them.
 - Confirm which services you can reliably deliver, and do not promise custom AI features or integrations that have not been built.
 - Test all links, the enquiry form, mobile layout and keyboard navigation on the published version.
