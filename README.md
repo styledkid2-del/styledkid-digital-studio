@@ -14,10 +14,14 @@ A mobile-first static website concept for an AI-assisted digital studio serving 
 ## Hosting
 This project is plain HTML, CSS and JavaScript; it does not require a build command or paid hosting.
 
-1. Open **Settings → Pages** in this repository.
-2. Set the source to **GitHub Actions**.
-3. Open **Actions** and check the deployment workflow.
+**One-time owner action required:** the deployment workflow cannot activate GitHub Pages itself because GitHub does not allow the workflow token to create the Pages site for this repository. A repository owner must enable it once.
+
+1. Open [Settings → Pages](https://github.com/styledkid2-del/styledkid-digital-studio/settings/pages).
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Open [Actions](https://github.com/styledkid2-del/styledkid-digital-studio/actions) and check the newest **Deploy static site to GitHub Pages** run.
 4. After a successful run, use the Pages URL shown by GitHub to test the site.
+
+Until that one-time setting is saved, workflow runs will fail at **Configure Pages**. This is a repository setting permission limitation, not a website-code error.
 
 ## Before accepting customers
 - **Confirm the business name.** “Kioo Studio” is a working name and should be checked before investing in branding.
