@@ -12,16 +12,9 @@ A mobile-first static website concept for an AI-assisted digital studio serving 
 - `.github/workflows/pages.yml` — GitHub Pages deployment workflow
 
 ## Hosting
-This project is plain HTML, CSS and JavaScript; it does not require a build command or paid hosting.
+The live site is deployed on Vercel and connected to this repository's `main` branch: [https://kioo-studio.vercel.app](https://kioo-studio.vercel.app). Updates pushed to `main` can trigger a new deployment. The site is plain HTML, CSS and JavaScript and does not require a build command.
 
-**One-time owner action required:** the deployment workflow cannot activate GitHub Pages itself because GitHub does not allow the workflow token to create the Pages site for this repository. A repository owner must enable it once.
-
-1. Open [Settings → Pages](https://github.com/styledkid2-del/styledkid-digital-studio/settings/pages).
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. Open [Actions](https://github.com/styledkid2-del/styledkid-digital-studio/actions) and check the newest **Deploy static site to GitHub Pages** run.
-4. After a successful run, use the Pages URL shown by GitHub to test the site.
-
-Until that one-time setting is saved, workflow runs will fail at **Configure Pages**. This is a repository setting permission limitation, not a website-code error.
+The GitHub Pages workflow remains in the repository from the earlier setup, but GitHub Pages is not the current production host.
 
 ## Before accepting customers
 - **Confirm the business name.** “Kioo Studio” is a working name and should be checked before investing in branding.
