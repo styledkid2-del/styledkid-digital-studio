@@ -7,7 +7,7 @@ A mobile-first static website concept for an AI-assisted digital studio serving 
 - `privacy.html` — plain-language notice explaining the static form's current behaviour
 - `404.html` — branded not-found page
 - `styles.css` — responsive visual design and mobile navigation styles
-- `script.js` — accessible mobile menu, enquiry preview, copy fallback, and local text-file download
+- `script.js` — accessible mobile menu, enquiry preview, copy fallback, optional native device sharing, and local text-file download
 - `favicon.svg` — simple brand icon
 - `.github/workflows/pages.yml` — GitHub Pages deployment workflow
 
