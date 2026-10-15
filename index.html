@@ -18,16 +18,17 @@
   <script src="script.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="announcement">Built for small businesses in Kenya <span>·</span> Clear, practical, online-first</div>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Kioo Studio home"><span class="brand-mark">K</span><span>KIOO<span class="brand-light"> STUDIO</span></span></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><span></span><span></span></button>
-    <nav id="main-nav" class="nav">
+    <nav id="main-nav" class="nav" aria-label="Main navigation">
       <a href="#services">What we do</a><a href="#examples">Examples</a><a href="#process">How it works</a><a href="#pricing">Packages</a><a class="nav-cta" href="#contact">Start a project <span>↗</span></a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero section-wrap" id="home">
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR BUSINESS, READY FOR MORE</p>
@@ -119,7 +120,7 @@
         <details><summary>Do I need to know exactly what I want? <span>+</span></summary><p>No. Tell us what your business does and what feels difficult right now. We can help you choose a sensible first step before you commit to a package.</p></details>
         <details><summary>Are the prices fixed? <span>+</span></summary><p>The prices shown are starting estimates in Kenyan shillings. The final quote depends on the agreed work, and you can review it before deciding whether to proceed.</p></details>
         <details><summary>Will you manage my social media or website every month? <span>+</span></summary><p>The packages describe starter projects, not an automatic monthly retainer. Any ongoing support, posting schedule or maintenance would need to be discussed and agreed separately.</p></details>
-        <details><summary>How do I send an enquiry right now? <span>+</span></summary><p>Use the enquiry form below to prepare your message. You can copy it or open an email draft. The studio's receiving email still needs to be confirmed, so please check the destination before sending.</p></details>
+        <details><summary>Does this form send my enquiry to you? <span>+</span></summary><p>Not yet. It prepares your message in your browser so you can copy or download it. No enquiry is sent to or stored by Kioo Studio until a real receiving method is configured and tested.</p></details>
       </div>
     </section>
 
@@ -129,17 +130,17 @@
         <label for="business">Business or idea name</label><input id="business" name="business" placeholder="Your business name (if you have one)" required>
         <label for="need">What would help you most?</label><select id="need" name="need" required><option value="" disabled selected>Choose a starting point</option><option>Brand basics</option><option>Social content</option><option>Digital launch kit / simple website</option><option>I'm not sure yet</option></select>
         <label for="budget">Comfortable starting budget</label><select id="budget" name="budget"><option value="Not sure yet">Not sure yet</option><option>Under KSh 2,000</option><option>KSh 2,000–5,000</option><option>KSh 5,000–10,000</option><option>Let's discuss the scope first</option></select>
-        <label for="details">Anything else we should know? <span>(optional)</span></label><textarea id="details" name="details" rows="3" placeholder="Tell us what you're trying to achieve…"></textarea>
+        <label for="details">Anything else we should know? <span>(optional)</span></label><textarea id="details" name="details" rows="3" maxlength="800" aria-describedby="details-count" placeholder="Tell us what you're trying to achieve…"></textarea><p class="character-count" id="details-count">0 / 800 characters</p>
         <button class="button button-dark form-submit" type="submit">Prepare my enquiry <span>↗</span></button>
-        <p class="form-hint">Create your enquiry below, then copy it or open an email draft. The studio's receiving email must be confirmed before launch.</p><p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        <p class="form-hint">This form prepares a message on your device. It does not send or store your enquiry. Copy it or download it, then send it using a contact method confirmed by the studio.</p><p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         <div class="enquiry-output" id="enquiry-output" hidden>
           <label for="enquiry-preview">Your enquiry is ready</label>
           <textarea id="enquiry-preview" rows="9" readonly></textarea>
           <div class="enquiry-actions">
             <button class="button button-dark" id="copy-enquiry" type="button">Copy enquiry <span>↗</span></button>
-            <button class="button button-outline" id="email-enquiry" type="button">Open email draft <span>↗</span></button>
+            <button class="button button-outline" id="download-enquiry" type="button">Download .txt <span>↓</span></button>
           </div>
-          <p class="form-hint">The current email destination is a placeholder. Confirm the studio inbox before using this for real customer enquiries.</p>
+          <p class="form-hint">Your details stay in this page unless you choose to copy or download them. Nothing is sent to Kioo Studio from this form yet.</p>
         </div>
       </form>
     </section>
