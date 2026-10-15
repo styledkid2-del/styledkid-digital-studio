@@ -34,3 +34,45 @@
 .faq-list details[open] summary span{transform:rotate(45deg)}
 .faq-list details p{font-size:12px;color:var(--muted);line-height:1.9;margin:0;padding:0 32px 20px 0;max-width:560px}
 @media(max-width:680px){.faq-section{padding-bottom:76px;grid-template-columns:1fr;gap:24px}.faq-heading>p:last-child{max-width:400px}.faq-list summary{font-size:13px;padding:17px 0}}
+
+
+/* Illustrative work directions */
+.work-section{background:#eee9df;padding:88px 0 96px}
+.work-heading{display:flex;justify-content:space-between;align-items:end;gap:45px}
+.work-heading h2{font-family:var(--display);font-size:clamp(39px,4.4vw,58px);letter-spacing:-.065em;line-height:1.04;font-weight:600;margin:0}
+.work-heading h2 em{font-family:var(--serif);font-weight:400;letter-spacing:-.05em;color:#647d5b}
+.work-heading>p{max-width:335px;color:var(--muted);font-size:12px;line-height:1.9;margin:0 0 5px}
+.concept-note{display:flex;align-items:center;gap:9px;font-size:8px;letter-spacing:.13em;font-weight:700;color:#77796e;margin:35px 0 15px}
+.concept-note span{font-size:17px;color:var(--orange)}
+.concept-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.concept-card{min-width:0}
+.concept-art{height:290px;position:relative;overflow:hidden;isolation:isolate}
+.concept-bloom .concept-art{background:#e4d6d8}
+.concept-table .concept-art{background:#e8d8b9}
+.concept-market .concept-art{background:#d8e2d1}
+.concept-mini{position:absolute;z-index:3;left:20px;top:25px;width:calc(100% - 40px);height:calc(100% - 50px);padding:19px 17px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;background:#f8f3e9eF;box-shadow:0 12px 30px #27241d12}
+.concept-mini>span{font-size:6px;letter-spacing:.15em;font-weight:700;color:#626458}
+.concept-mini strong{font-family:var(--display);font-size:clamp(28px,3vw,39px);line-height:.97;letter-spacing:-.075em;margin:16px 0 20px}
+.concept-mini strong em{font-family:var(--serif);font-weight:400;color:#718363}
+.concept-mini i{font-style:normal;font-size:6px;letter-spacing:.12em;font-weight:700;border-top:1px solid #292a252e;padding-top:11px;width:100%}
+.concept-number{position:absolute;right:13px;bottom:10px;font-size:7px;letter-spacing:.13em;z-index:4;color:#303128}
+.bloom-orbit{position:absolute;width:190px;height:190px;border:1px solid #b68b94;border-radius:50%;right:-30px;top:-35px}
+.bloom-stem{position:absolute;width:2px;height:300px;background:#849477;left:62%;top:20px;transform:rotate(24deg)}
+.bloom-flower{position:absolute;font-size:190px;color:#c68d99;right:-20px;bottom:-58px;transform:rotate(-15deg)}
+.concept-table .concept-mini{background:#fbf4e5}
+.table-sun{position:absolute;width:220px;height:220px;border-radius:50%;background:#d98d58;right:-65px;top:-45px}
+.table-plate{position:absolute;width:240px;height:240px;border:16px solid #f4e8d1;border-radius:50%;right:-10px;bottom:-100px;box-shadow:0 0 0 1px #bd946c}
+.table-leaf{position:absolute;z-index:1;width:45px;height:95px;border-radius:100% 0 100% 0;background:#718b62}
+.leaf-one{right:18px;top:78px;transform:rotate(38deg)}
+.leaf-two{right:62px;top:106px;transform:rotate(-32deg);background:#9ba87b}
+.concept-market .concept-mini{background:#f8f5e9}
+.market-frame{position:absolute;right:-8px;bottom:-22px;width:190px;height:225px;border:1px solid #93a38a;transform:rotate(8deg)}
+.market-sun{position:absolute;width:125px;height:125px;border-radius:50%;background:#d7aa78;right:15px;top:15px}
+.market-bag{position:absolute;right:34px;top:72px;width:90px;height:110px;display:grid;place-items:center;background:#7b8d6c;color:#f8f3e9;font-family:var(--serif);font-size:40px;box-shadow:0 12px 24px #313b2a21}
+.market-tag{position:absolute;right:5px;top:132px;background:#f8f3e9;padding:9px 12px;font-size:7px;line-height:1.5;letter-spacing:.1em;font-weight:700;transform:rotate(-8deg)}
+.concept-caption{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:16px 2px 0}
+.concept-caption h3{font-family:var(--display);font-size:16px;letter-spacing:-.035em;margin:0 0 3px}
+.concept-caption p{font-size:10px;color:var(--muted);margin:0}
+.concept-caption>span{font-size:7px;letter-spacing:.06em;color:#68745e;text-align:right;padding-top:5px;white-space:nowrap}
+@media(max-width:900px){.concept-art{height:245px}.concept-mini{left:14px;top:20px;width:calc(100% - 28px);height:calc(100% - 40px);padding:14px}.concept-mini strong{font-size:clamp(26px,3.4vw,34px)}.concept-caption{display:block}.concept-caption>span{display:block;text-align:left;margin-top:7px}.work-heading{gap:25px}}
+@media(max-width:680px){.work-section{padding:70px 0 76px}.work-heading{display:block}.work-heading>p{margin-top:20px;max-width:420px}.concept-grid{grid-template-columns:1fr;gap:25px}.concept-art{height:320px}.concept-mini{left:25px;top:25px;width:calc(100% - 50px);height:calc(100% - 50px);padding:23px}.concept-mini strong{font-size:clamp(34px,9vw,45px)}.concept-caption{display:flex}.concept-caption>span{text-align:right;margin-top:0}.bloom-flower{font-size:230px;right:-18px}.table-sun{width:260px;height:260px}.market-frame{width:210px;height:250px}}
