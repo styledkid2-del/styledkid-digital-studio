@@ -210,3 +210,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #b9
   .site-header{backdrop-filter:none}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button,.nav a{transition:none}.button:hover{transform:none}}
+
+
+/* Keep the package we recommend visually distinct using its actual class. */
+.price-row.featured-price{background:#e3eadc;border:1px solid rgba(23,42,36,.12);border-radius:4px;padding:22px 18px}
+.price-row.featured-price .price-amount strong{color:#9b5035}
