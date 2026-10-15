@@ -20,5 +20,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Check JavaScript syntax
+        run: node --check script.js
       - name: Validate pages, local assets, JSON-LD and enquiry wiring
         run: node scripts/check-site.mjs
