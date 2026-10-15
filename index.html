@@ -179,12 +179,13 @@
         <details><summary>Do I need to know exactly what I want? <span>+</span></summary><p>No. Tell us what your business does and what feels difficult right now. We can help you choose a sensible first step before you commit to a package.</p></details>
         <details><summary>Are the prices fixed? <span>+</span></summary><p>The prices shown are starting estimates in Kenyan shillings. The final quote depends on the agreed work, and you can review it before deciding whether to proceed.</p></details>
         <details><summary>Will you manage my social media or website every month? <span>+</span></summary><p>The packages describe starter projects, not an automatic monthly retainer. Any ongoing support, posting schedule or maintenance would need to be discussed and agreed separately.</p></details>
-        <details><summary>Does this form send my enquiry to you? <span>+</span></summary><p>You can submit your enquiry directly here without opening your email app. WhatsApp is also available if you prefer to message us.</p></details>
+        <details><summary>Does this form send my enquiry to you? <span>+</span></summary><p>Submit the form to send your enquiry through FormSubmit. If submission fails, you can use the email or WhatsApp fallback shown with the form. You must press Send in your email or WhatsApp app.</p></details>
       </div>
     </section>
 
-    <section class="contact-section section-wrap" id="contact"><div class="contact-copy"><p class="eyebrow">LET’S MAKE YOUR NEXT MOVE COUNT</p><h2>Let's make your<br>business <em>easier to find.</em></h2><p>Tell us a little about your business, then choose email or WhatsApp to send your enquiry. We’ll discuss a practical starting point and confirm a quote before any work begins.</p><div class="contact-footnote"><span>✳</span> No pressure. No work starts without your approval.</div></div>
+    <section class="contact-section section-wrap" id="contact"><div class="contact-copy"><p class="eyebrow">LET’S MAKE YOUR NEXT MOVE COUNT</p><h2>Let's make your<br>business <em>easier to find.</em></h2><p>Tell us a little about your business and what you need. Submit the form here, and we’ll discuss a practical starting point and confirm a quote before any work begins.</p><div class="contact-footnote"><span>✳</span> No pressure. No work starts without your approval.</div></div>
       <form class="contact-form" id="project-form">
+        <div class="form-trap" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" name="_gotcha" tabindex="-1" autocomplete="off"></div>
         <label for="name">Your name</label><input id="name" name="name" autocomplete="name" placeholder="What should we call you?" required>
         <label for="email">Your email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
         <label for="business">Business or idea name <span>(optional)</span></label><input id="business" name="business" autocomplete="organization" placeholder="Your business name (if you have one)">
@@ -192,19 +193,18 @@
         <label for="budget">Comfortable starting budget</label><select id="budget" name="budget"><option value="Not sure yet">Not sure yet</option><option>Under KSh 2,000</option><option>KSh 2,000–5,000</option><option>KSh 5,000–10,000</option><option>Let's discuss the scope first</option></select>
         <label for="details">Anything else we should know? <span>(optional)</span></label><textarea id="details" name="details" rows="3" maxlength="800" aria-describedby="details-count" placeholder="Tell us what you're trying to achieve…"></textarea><p class="character-count" id="details-count">0 / 800 characters</p>
         <button class="button button-dark form-submit" type="submit">Send enquiry <span>↗</span></button>
-        <p class="form-hint">Your enquiry will be sent directly through our secure form provider. You do not need to open your email app.</p><p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        <p class="form-hint">Your enquiry is submitted through FormSubmit. If submission fails, the email and WhatsApp options below will help you contact us instead.</p><p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         <div class="enquiry-output" id="enquiry-output" hidden>
           <label for="enquiry-preview">Your enquiry is ready</label>
           <textarea id="enquiry-preview" rows="9" readonly></textarea>
           <div class="enquiry-actions">
             <button class="button button-dark" id="email-enquiry" type="button">Send by email <span>↗</span></button>
             <button class="button button-outline" id="copy-enquiry" type="button">Copy enquiry <span>↗</span></button>
-            <button class="button button-outline" id="submit-enquiry" type="button">Send enquiry to Kioo <span>↗</span></button>
             <button class="button button-outline" id="whatsapp-enquiry" type="button">Send on WhatsApp <span>↗</span></button>
             <button class="button button-outline" id="share-enquiry" type="button" hidden>Share enquiry <span>↗</span></button>
             <button class="button button-outline" id="download-enquiry" type="button">Download .txt <span>↓</span></button>
           </div>
-          <p class="form-hint">Submitting this form sends your details through FormSubmit. The WhatsApp option opens a prepared message that you must send yourself.</p>
+          <p class="form-hint">Email and WhatsApp open a prepared message. Review it and press Send in that app. Copy and download are backup options; they do not send the enquiry.</p>
         </div>
       </form>
     </section>
