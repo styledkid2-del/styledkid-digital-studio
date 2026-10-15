@@ -21,6 +21,7 @@ const status = document.querySelector("#form-status");
 const output = document.querySelector("#enquiry-output");
 const preview = document.querySelector("#enquiry-preview");
 const copyButton = document.querySelector("#copy-enquiry");
+const shareButton = document.querySelector("#share-enquiry");
 const downloadButton = document.querySelector("#download-enquiry");
 const detailsField = document.querySelector("#details");
 const detailsCount = document.querySelector("#details-count");
@@ -59,6 +60,25 @@ if (copyButton && preview && status) {
       status.textContent = "The enquiry is selected. Press Ctrl+C to copy it.";
     }
   });
+}
+
+if (shareButton && preview && status) {
+  if (typeof navigator.share === "function") {
+    shareButton.hidden = false;
+    shareButton.addEventListener("click", async () => {
+      try {
+        await navigator.share({
+          title: "Kioo Studio enquiry",
+          text: preview.value
+        });
+        status.textContent = "Your device opened its share options. Check the app you chose to finish sending the enquiry.";
+      } catch (error) {
+        if (error && error.name !== "AbortError") {
+          status.textContent = "Sharing wasn't available. You can copy the enquiry or download it instead.";
+        }
+      }
+    });
+  }
 }
 
 if (downloadButton && preview && status) {
