@@ -183,3 +183,13 @@ document.querySelectorAll("[data-enquiry-value]").forEach(function (link) {
     if (field && value) field.value = value;
   });
 });
+
+/* Let package and service links open the contact page with the right choice selected. */
+if (form) {
+  const requestedService = new URLSearchParams(window.location.search).get("service");
+  const serviceField = document.getElementById("need");
+  if (requestedService && serviceField) {
+    const matchingOption = Array.from(serviceField.options).find((option) => option.text.trim().toLowerCase() === requestedService.trim().toLowerCase());
+    if (matchingOption) serviceField.value = matchingOption.value;
+  }
+}
