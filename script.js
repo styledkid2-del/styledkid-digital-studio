@@ -21,8 +21,9 @@ const status = document.querySelector("#form-status");
 const output = document.querySelector("#enquiry-output");
 const preview = document.querySelector("#enquiry-preview");
 const copyButton = document.querySelector("#copy-enquiry");
-const emailButton = document.querySelector("#email-enquiry");
-const enquirySubject = "New project enquiry — Kioo Studio";
+const downloadButton = document.querySelector("#download-enquiry");
+const detailsField = document.querySelector("#details");
+const detailsCount = document.querySelector("#details-count");
 
 if (form && output && preview) {
   form.addEventListener("submit", (event) => {
@@ -42,8 +43,8 @@ if (form && output && preview) {
       "Please let me know the next steps."
     ].join("\n");
     output.hidden = false;
-    if (status) status.textContent = "Your enquiry is prepared below. Copy it or open an email draft after checking the destination address.";
-    output.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    if (status) status.textContent = "Your enquiry is ready. Copy or download it, then send it using a contact method confirmed by the studio.";
+    output.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
   });
 }
 
@@ -60,10 +61,36 @@ if (copyButton && preview && status) {
   });
 }
 
-if (emailButton && preview) {
-  emailButton.addEventListener("click", () => {
-    const subject = encodeURIComponent(enquirySubject);
-    const body = encodeURIComponent(preview.value);
-    window.location.href = "mailto:hello@styledkid.co.ke?subject=" + subject + "&body=" + body;
+if (downloadButton && preview && status) {
+  downloadButton.addEventListener("click", () => {
+    const file = new Blob([preview.value + "\n"], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(file);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "kioo-studio-enquiry.txt";
+    document.body.append(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+    status.textContent = "Your enquiry file has been prepared for download. Remember, it has not been sent to the studio.";
+  });
+}
+
+if (detailsField && detailsCount) {
+  const updateCount = () => {
+    detailsCount.textContent = detailsField.value.length + " / 800 characters";
+  };
+  detailsField.addEventListener("input", updateCount);
+  updateCount();
+}
+
+if (menuButton && nav) {
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("open")) {
+      nav.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Open menu");
+      menuButton.focus();
+    }
   });
 }
