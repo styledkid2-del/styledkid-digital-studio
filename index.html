@@ -85,7 +85,16 @@
         <label for="budget">Comfortable starting budget</label><select id="budget" name="budget"><option value="Not sure yet">Not sure yet</option><option>Under KSh 2,000</option><option>KSh 2,000–5,000</option><option>KSh 5,000–10,000</option><option>Let's discuss the scope first</option></select>
         <label for="details">Anything else we should know? <span>(optional)</span></label><textarea id="details" name="details" rows="3" placeholder="Tell us what you're trying to achieve…"></textarea>
         <button class="button button-dark form-submit" type="submit">Prepare my enquiry <span>↗</span></button>
-        <p class="form-hint">This opens an email draft on your device. You can review it before sending.</p><p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        <p class="form-hint">Create your enquiry below, then copy it or open an email draft. The studio's receiving email must be confirmed before launch.</p><p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        <div class="enquiry-output" id="enquiry-output" hidden>
+          <label for="enquiry-preview">Your enquiry is ready</label>
+          <textarea id="enquiry-preview" rows="9" readonly></textarea>
+          <div class="enquiry-actions">
+            <button class="button button-dark" id="copy-enquiry" type="button">Copy enquiry <span>↗</span></button>
+            <button class="button button-outline" id="email-enquiry" type="button">Open email draft <span>↗</span></button>
+          </div>
+          <p class="form-hint">The current email destination is a placeholder. Confirm the studio inbox before using this for real customer enquiries.</p>
+        </div>
       </form>
     </section>
   </main>
