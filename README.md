@@ -18,7 +18,7 @@ The GitHub Pages workflow remains in the repository from the earlier setup, but 
 
 ## Before accepting customers
 - **Confirm the business name.** “Kioo Studio” is a working name and should be checked before investing in branding.
-- **Activate and test enquiry delivery.** Email is configured through FormSubmit to `doreennkonge81@gmail.com`; the recipient must open FormSubmit’s activation email before normal delivery can be relied on. The WhatsApp handoff is configured for `+254740354169` and requires the visitor to review and press Send in WhatsApp. Do not claim delivery is verified until both paths have been tested end-to-end.
+- **Test enquiry delivery end-to-end.** The form does not send to a server. The email button opens the visitor’s email app with a prepared message addressed to `doreennkonge81@gmail.com`; the WhatsApp button opens a prepared message for `+254740354169`. The visitor must review and press Send in the chosen app. Neither delivery path has been independently verified end-to-end.
 - Review package prices, deliverables and turnaround times before advertising them.
 - Confirm which services you can reliably deliver, and do not promise custom AI features or integrations that have not been built.
 - Test all links, the enquiry form, mobile layout and keyboard navigation on the published version.
