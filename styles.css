@@ -382,3 +382,13 @@ html{scroll-padding-top:112px}
  .page-note-band{padding:57px 0 63px}
 }
 @media(prefers-reduced-motion:reduce){.footer-links-group a{transition:none}}
+
+@media(max-width:800px){
+ .site-header{height:78px;padding-inline:5%}
+ .menu-toggle{display:block;flex:0 0 44px;background:#fffdf8;border:1px solid rgba(23,42,36,.16);border-radius:3px;cursor:pointer}
+ .nav{display:none;position:absolute;top:77px;left:0;right:0;padding:14px 5% 22px;background:rgba(246,242,233,.99);border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(23,42,36,.09);align-items:stretch;gap:0;flex-direction:column}
+ .nav.open{display:flex}
+ .nav>a:not(.nav-cta){padding:13px 2px;border-bottom:1px solid rgba(23,42,36,.09)}
+ .nav .nav-cta{margin-top:14px;min-height:48px;padding:0 16px;justify-content:space-between}
+}
+@media(max-width:680px){.site-header{height:76px;min-height:76px}.nav{top:75px}}
