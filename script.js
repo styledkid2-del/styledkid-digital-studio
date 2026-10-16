@@ -189,7 +189,16 @@ if (form) {
   const requestedService = new URLSearchParams(window.location.search).get("service");
   const serviceField = document.getElementById("need");
   if (requestedService && serviceField) {
-    const matchingOption = Array.from(serviceField.options).find((option) => option.text.trim().toLowerCase() === requestedService.trim().toLowerCase());
+    const normaliseService = (value) => value
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim()
+      .replace(/\\s+/g, " ");
+    const requested = normaliseService(requestedService);
+    const matchingOption = Array.from(serviceField.options).find((option) => {
+      const label = normaliseService(option.text);
+      return label === requested || label.startsWith(requested) || requested.startsWith(label);
+    });
     if (matchingOption) serviceField.value = matchingOption.value;
   }
 }
