@@ -4,8 +4,14 @@ A mobile-first static website concept for a digital studio serving small busines
 
 ## Website files
 - `index.html` — landing page, service cards, starter packages and enquiry form
+- `services.html` — detailed service overview
+- `work.html` — clearly labelled illustrative creative concepts
+- `about.html` — studio approach and values
+- `packages.html` — indicative starter packages and pricing
+- `contact.html` — dedicated project enquiry form with fallback contact options
 - `privacy.html` — plain-language notice explaining the enquiry form and third-party processing
 - `404.html` — branded not-found page
+- `sitemap.xml` and `robots.txt` — search-crawler discovery
 - `styles.css` — responsive visual design and mobile navigation styles
 - `script.js` — accessible mobile menu, FormSubmit enquiry submission, email-app and WhatsApp handoff, copy fallback, optional native device sharing, and local text-file download
 - `favicon.svg` — simple brand icon
