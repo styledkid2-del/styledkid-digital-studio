@@ -193,7 +193,7 @@ if (form) {
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, " ")
       .trim()
-      .replace(/\\s+/g, " ");
+      .replace(/\s+/g, " ");
     const requested = normaliseService(requestedService);
     const matchingOption = Array.from(serviceField.options).find((option) => {
       const label = normaliseService(option.text);
