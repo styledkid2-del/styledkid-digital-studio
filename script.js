@@ -54,16 +54,18 @@ if (form && preview && status) {
       submitButton.textContent = "Sending enquiry…";
     }
     status.textContent = "Sending your enquiry securely through our form provider…";
-    const payload = {
-      name: String(data.get("name") || "").trim(),
-      email: String(data.get("email") || "").trim(),
-      business: String(data.get("business") || "").trim(),
-      service: String(data.get("need") || "").trim(),
-      budget: String(data.get("budget") || "Not sure yet").trim(),
-      message,
-      _subject: "New Kioo Studio enquiry",
-      _gotcha: String(data.get("_gotcha") || "").trim()
-    };
+    // FormSubmit accepts native FormData and returns a JSON acknowledgement.
+    // Preserve the visible form fields, while adding the composed enquiry and spam-check timestamp.
+    const payload = new FormData(form);
+    payload.set("name", String(data.get("name") || "").trim());
+    payload.set("email", String(data.get("email") || "").trim());
+    payload.set("business", String(data.get("business") || "").trim());
+    payload.delete("need");
+    payload.set("service", String(data.get("need") || "").trim());
+    payload.set("budget", String(data.get("budget") || "Not sure yet").trim());
+    payload.set("message", message);
+    payload.set("_subject", "New Kioo Studio enquiry");
+    payload.set("_ts", String(Date.now()));
     try {
       const controller = new AbortController();
       const timeoutId = window.setTimeout(() => controller.abort(), 15000);
@@ -72,8 +74,8 @@ if (form && preview && status) {
       try {
         response = await fetch("https://formsubmit.app/f/6jnzxw4btk", {
           method: "POST",
-          headers: { "Content-Type": "application/json", "Accept": "application/json" },
-          body: JSON.stringify(payload),
+          headers: { "Accept": "application/json" },
+          body: payload,
           signal: controller.signal
         });
         result = await response.json();
