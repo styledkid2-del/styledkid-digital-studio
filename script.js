@@ -65,14 +65,23 @@ if (form && preview && status) {
       _gotcha: String(data.get("_gotcha") || "").trim()
     };
     try {
-      const response = await fetch("https://formsubmit.app/f/6jnzxw4btk", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(payload)
-      });
-      const result = await response.json();
-      if (!response.ok || !result.ok) {
-        throw new Error((result && result.error && result.error.message) || "The form provider did not accept the enquiry.");
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), 15000);
+      let response;
+      let result;
+      try {
+        response = await fetch("https://formsubmit.app/f/6jnzxw4btk", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(payload),
+          signal: controller.signal
+        });
+        result = await response.json();
+      } finally {
+        window.clearTimeout(timeoutId);
+      }
+      if (!response.ok || !result || result.ok !== true) {
+        throw new Error((result && result.error && result.error.message) || "The form provider did not confirm receipt.");
       }
       status.textContent = "Thank you — your enquiry has been submitted. If you don't hear back, please contact us on WhatsApp.";
       form.reset();
@@ -81,7 +90,9 @@ if (form && preview && status) {
       if (submitButton) submitButton.textContent = "Enquiry sent ✓";
     } catch (error) {
       if (output) output.hidden = false;
-      status.textContent = "We couldn't confirm your enquiry was sent. Your details are still available below—try again or use email or WhatsApp to send them.";
+      status.textContent = error && error.name === "AbortError"
+        ? "The form provider took too long to respond. We couldn't confirm delivery. Your details are still available below—try again or use email or WhatsApp."
+        : "We couldn't confirm your enquiry was sent. Your details are still available below—try again or use email or WhatsApp to send them.";
       if (submitButton) {
         submitButton.disabled = false;
         submitButton.textContent = "Try sending again ↗";
