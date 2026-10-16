@@ -427,3 +427,16 @@ textarea { resize: vertical; }
   .contact-form textarea { min-height: 120px; }
   .hero-actions .button, .package-cost .button { min-height: 46px; }
 }
+
+
+/* Package-page process: make scope and pricing expectations easy to scan. */
+.package-process{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.2fr);gap:clamp(30px,7vw,90px);padding-top:68px;padding-bottom:78px;border-top:1px solid var(--line)}
+.package-process-heading .eyebrow{color:#78816e}
+.package-process-heading h2{font-family:var(--display);font-size:clamp(30px,4vw,46px);line-height:1.03;letter-spacing:-.06em;margin:0 0 15px}
+.package-process-heading>p:last-child{max-width:340px;font-size:12px;line-height:1.9;color:var(--muted)}
+.package-process-steps{list-style:none;margin:0;padding:0}
+.package-process-steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;padding:18px 0;border-top:1px solid var(--line)}
+.package-process-steps li>span{font-size:10px;color:#9b5035;padding-top:3px}
+.package-process-steps h3{font-family:var(--display);font-size:17px;letter-spacing:-.035em;margin:0 0 5px}
+.package-process-steps p{font-size:11px;line-height:1.8;color:var(--muted);margin:0;max-width:520px}
+@media(max-width:680px){.package-process{grid-template-columns:1fr;gap:22px;padding-top:48px;padding-bottom:55px}.package-process-steps li{padding:16px 0}}
