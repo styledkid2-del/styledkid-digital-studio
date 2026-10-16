@@ -392,3 +392,38 @@ html{scroll-padding-top:112px}
  .nav .nav-cta{margin-top:14px;min-height:48px;padding:0 16px;justify-content:space-between}
 }
 @media(max-width:680px){.site-header{height:76px;min-height:76px}.nav{top:75px}}
+
+
+/* Final accessibility and mobile usability polish */
+:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+button, input, select, textarea { accent-color: #647d5b; }
+button:disabled { cursor: wait; opacity: .72; }
+input, select, textarea { max-width: 100%; }
+textarea { resize: vertical; }
+::selection { background: #dce9d5; color: #20221d; }
+@media (hover: hover) {
+  .nav-cta, .button-dark { transition: background-color .2s ease, transform .2s ease; }
+  .nav-cta:hover, .button-dark:hover { background: #354b3d; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+@media (max-width: 680px) {
+  .menu-toggle { min-width: 44px; min-height: 44px; }
+  .nav a { min-height: 44px; }
+  .contact-form input, .contact-form select, .contact-form textarea {
+    min-height: 46px;
+    font-size: 16px;
+  }
+  .contact-form textarea { min-height: 120px; }
+  .hero-actions .button, .package-cost .button { min-height: 46px; }
+}
