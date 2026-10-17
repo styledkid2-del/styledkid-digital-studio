@@ -75,11 +75,14 @@ if (form && preview && status) {
     if (!form.reportValidity()) return;
     const data = new FormData(form);
     if (String(data.get("_gotcha") || "").trim()) return;
+    const referenceDate = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+    const reference = "KIOO-" + referenceDate + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
     const message = [
       "Hello Kioo Studio,",
       "",
       "I'd like to enquire about your services.",
       "",
+      "Enquiry reference: " + reference,
       "Name: " + (data.get("name") || ""),
       "Email: " + (data.get("email") || ""),
       "Business / idea: " + (data.get("business") || ""),
@@ -131,7 +134,7 @@ if (form && preview && status) {
       }
       status.classList.remove("is-pending", "is-error");
       status.classList.add("is-success");
-      status.textContent = "FormSubmit confirmed your submission, but this does not confirm the notification email reached the studio. We aim to reply by email within 2 business days. If you have not heard back, contact us on WhatsApp.";
+      status.textContent = "FormSubmit confirmed receipt. Your enquiry reference is " + reference + ". Keep it for your records. This does not confirm the notification email reached the studio. We aim to reply by email within 2 business days; if you have not heard back, contact us on WhatsApp.";
       form.reset();
       const timestampField = form.querySelector('input[name="_ts"]');
       if (timestampField) timestampField.value = String(Date.now());
