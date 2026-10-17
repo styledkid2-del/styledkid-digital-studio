@@ -111,7 +111,7 @@ if (form && preview && status) {
       if (!response.ok || !result || result.ok !== true) {
         throw new Error((result && result.error && result.error.message) || "The form provider did not confirm receipt.");
       }
-      status.textContent = "Thank you — your enquiry has been submitted. If you don't hear back, please contact us on WhatsApp.";
+      status.textContent = "FormSubmit confirmed your submission, but this does not confirm the notification email reached the studio. We aim to reply by email within 2 business days. If you have not heard back, contact us on WhatsApp.";
       form.reset();
       if (output) output.hidden = true;
       if (detailsCount) detailsCount.textContent = "0 / 800 characters";
