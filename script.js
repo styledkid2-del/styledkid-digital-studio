@@ -268,7 +268,7 @@ floatingWhatsApp.className = "floating-whatsapp";
 floatingWhatsApp.href = "https://wa.me/254740354169";
 floatingWhatsApp.target = "_blank";
 floatingWhatsApp.rel = "noopener noreferrer";
-floatingWhatsApp.setAttribute("aria-label", "Chat with Kioo Studio on WhatsApp");
+floatingWhatsApp.setAttribute("aria-label", "Chat on WhatsApp");
 floatingWhatsApp.innerHTML = 'Chat on WhatsApp <span aria-hidden="true">↗</span>';
 document.body.append(floatingWhatsApp);
 
