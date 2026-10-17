@@ -774,3 +774,18 @@ textarea { resize: vertical; }
 .founders-photo-note{font-size:12px;color:#66695f;margin:18px 0 0}
 @media(max-width:900px){.founders-grid{grid-template-columns:1fr;gap:14px}.founder-card{grid-template-columns:100px minmax(0,1fr)}.founder-photo-placeholder{width:100px}}
 @media(max-width:480px){.founder-card{grid-template-columns:76px minmax(0,1fr);gap:14px;padding:15px}.founder-photo-placeholder{width:76px}.founder-photo-placeholder span{font-size:42px}.founder-copy h3{font-size:16px}.founder-copy p:last-child{font-size:13px}}
+
+
+/* Accessibility refinements: keep small supporting text comfortably legible on light surfaces. */
+.page-index,
+.contact-direct a span,
+.contact-form label span,
+.contact-form .form-hint,
+.contact-form .form-status,
+.price-note,
+.package-disclaimer,
+.package-count,
+.package-detail .eyebrow,
+.package-cost small {
+  color: #626458;
+}
