@@ -79,6 +79,8 @@ if (form && preview && status) {
       submitButton.disabled = true;
       submitButton.textContent = "Sending enquiry…";
     }
+    status.classList.remove("is-error", "is-success");
+    status.classList.add("is-pending");
     status.textContent = "Sending your enquiry securely through our form provider…";
     // FormSubmit accepts native FormData and returns a JSON acknowledgement.
     // Preserve the visible form fields, while adding the composed enquiry and spam-check timestamp.
@@ -91,7 +93,7 @@ if (form && preview && status) {
     payload.set("budget", String(data.get("budget") || "Not sure yet").trim());
     payload.set("message", message);
     payload.set("_subject", "New Kioo Studio enquiry");
-    payload.set("_ts", String(Date.now()));
+    // Keep the timestamp created when the form page loaded so the spam timing check is meaningful.
     try {
       const controller = new AbortController();
       const timeoutId = window.setTimeout(() => controller.abort(), 15000);
@@ -111,6 +113,8 @@ if (form && preview && status) {
       if (!response.ok || !result || result.ok !== true) {
         throw new Error((result && result.error && result.error.message) || "The form provider did not confirm receipt.");
       }
+      status.classList.remove("is-pending", "is-error");
+      status.classList.add("is-success");
       status.textContent = "FormSubmit confirmed your submission, but this does not confirm the notification email reached the studio. We aim to reply by email within 2 business days. If you have not heard back, contact us on WhatsApp.";
       form.reset();
       if (output) output.hidden = true;
@@ -118,6 +122,8 @@ if (form && preview && status) {
       if (submitButton) submitButton.textContent = "Enquiry sent ✓";
     } catch (error) {
       if (output) output.hidden = false;
+      status.classList.remove("is-pending", "is-success");
+      status.classList.add("is-error");
       status.textContent = error && error.name === "AbortError"
         ? "The form provider took too long to respond. We couldn't confirm delivery. Your details are still available below—try again or use email or WhatsApp."
         : "We couldn't confirm your enquiry was sent. Your details are still available below—try again or use email or WhatsApp to send them.";
@@ -193,6 +199,11 @@ if (downloadButton && preview && status) {
     URL.revokeObjectURL(url);
     status.textContent = "Your enquiry file has been prepared for download. Remember, it has not been sent to the studio.";
   });
+}
+
+if (form) {
+  const renderedAtField = form.querySelector('input[name="_ts"]');
+  if (renderedAtField) renderedAtField.value = String(Date.now());
 }
 
 if (detailsField && detailsCount) {
