@@ -1,3 +1,19 @@
+/* Privacy-notice-covered Vercel Web Analytics. Enable Web Analytics in the Vercel dashboard to collect events. */
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+const analyticsScript = document.createElement("script");
+analyticsScript.defer = true;
+analyticsScript.src = "/_vercel/insights/script.js";
+analyticsScript.onerror = () => {};
+document.head.append(analyticsScript);
+
+function trackStudioEvent(name, data = {}) {
+  try {
+    if (typeof window.va === "function") window.va("event", { name, data });
+  } catch {
+    // Analytics must never interrupt an enquiry.
+  }
+}
+
 const menuButton = document.querySelector(".menu-toggle");
 const nav = document.querySelector("#main-nav");
 
@@ -121,11 +137,13 @@ if (form && preview && status) {
       if (timestampField) timestampField.value = String(Date.now());
       if (output) output.hidden = true;
       if (detailsCount) detailsCount.textContent = "0 / 800 characters";
+      trackStudioEvent("Enquiry Submitted", { service: String(data.get("need") || "unspecified") });
       if (submitButton) submitButton.textContent = "Enquiry sent ✓";
     } catch (error) {
       if (output) output.hidden = false;
       status.classList.remove("is-pending", "is-success");
       status.classList.add("is-error");
+      trackStudioEvent("Enquiry Submit Error");
       status.textContent = error && error.name === "AbortError"
         ? "The form provider took too long to respond. We couldn't confirm delivery. Your details are still available below—try again or use email or WhatsApp."
         : "We couldn't confirm your enquiry was sent. Your details are still available below—try again or use email or WhatsApp to send them.";
@@ -248,6 +266,7 @@ if (form) {
 const floatingWhatsApp = document.createElement("a");
 floatingWhatsApp.className = "floating-whatsapp";
 floatingWhatsApp.href = "https://wa.me/254740354169";
+floatingWhatsApp.addEventListener("click", () => trackStudioEvent("WhatsApp Click", { placement: "floating" }));
 floatingWhatsApp.target = "_blank";
 floatingWhatsApp.rel = "noopener noreferrer";
 floatingWhatsApp.setAttribute("aria-label", "Chat with Kioo Studio on WhatsApp");
@@ -263,3 +282,25 @@ if (enquiryForm && "IntersectionObserver" in window) {
   }, { threshold: 0.08 });
   contactVisibility.observe(enquiryForm);
 }
+
+
+/* Track enquiry actions without collecting names, email addresses or enquiry text. */
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a");
+  if (!link) return;
+  const href = link.getAttribute("href") || "";
+  const label = (link.getAttribute("data-enquiry-value") || link.textContent || link.getAttribute("aria-label") || "unlabelled")
+    .trim().replace(/\s+/g, " ").slice(0, 80);
+  if (href.startsWith("https://wa.me/")) {
+    trackStudioEvent("WhatsApp Click", { placement: link.classList.contains("floating-whatsapp") ? "floating" : "page", label });
+  } else if (href.startsWith("mailto:")) {
+    trackStudioEvent("Email Click", { placement: "page" });
+  } else if (href.includes("contact.html") || href === "#contact") {
+    trackStudioEvent("Enquiry CTA Click", { label, destination: href.startsWith("#") ? "homepage_form" : "contact_page" });
+  }
+});
+document.addEventListener("change", (event) => {
+  if (event.target && event.target.id === "need" && event.target.value) {
+    trackStudioEvent("Service Selected", { service: event.target.value });
+  }
+});
