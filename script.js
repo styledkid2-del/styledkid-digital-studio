@@ -294,7 +294,7 @@ document.addEventListener("click", (event) => {
     trackStudioEvent("WhatsApp Click", { placement: link.classList.contains("floating-whatsapp") ? "floating" : "page", label });
   } else if (href.startsWith("mailto:")) {
     trackStudioEvent("Email Click", { placement: "page" });
-  } else if (href.includes("contact.html") || href === "#contact") {
+  } else if (href.includes("contact.html") || href === "#contact" || href === "#project-form") {
     trackStudioEvent("Enquiry CTA Click", { label, destination: href.startsWith("#") ? "homepage_form" : "contact_page" });
   }
 });
