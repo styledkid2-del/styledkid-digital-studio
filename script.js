@@ -203,18 +203,6 @@ if (detailsField && detailsCount) {
   updateCount();
 }
 
-if (menuButton && nav) {
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && nav.classList.contains("open")) {
-      nav.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
-      menuButton.setAttribute("aria-label", "Open menu");
-      menuButton.focus();
-    }
-  });
-}
-
-
 document.querySelectorAll("[data-enquiry-value]").forEach(function (link) {
   link.addEventListener("click", function () {
     const field = document.getElementById("need");
