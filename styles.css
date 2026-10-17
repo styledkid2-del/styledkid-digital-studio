@@ -1577,3 +1577,15 @@ textarea { resize: vertical; }
 @media (prefers-reduced-motion: reduce) {
   .sample-work-card { scroll-behavior: auto; }
 }
+
+
+/* Downloadable, clearly-labelled creative sample pack */
+.sample-pack-download{display:flex;align-items:center;justify-content:space-between;gap:28px;margin:28px 0 0;padding:clamp(22px,4vw,34px);background:#e5e8d9;border:1px solid rgba(23,42,36,.12);border-radius:4px}
+.sample-pack-download>div{max-width:650px}
+.sample-pack-download .eyebrow{margin:0 0 9px;color:#75816d}
+.sample-pack-download h3{margin:0 0 8px;font-family:var(--display);font-size:clamp(22px,3vw,30px);line-height:1.15;letter-spacing:-.05em}
+.sample-pack-download p:not(.eyebrow){margin:0 0 8px;color:#56594f;font-size:13px;line-height:1.8}
+.sample-pack-download small{display:block;color:#62685d;font-size:10px;line-height:1.7}
+.sample-pack-download .button{flex:0 0 auto;white-space:nowrap}
+.sample-pack-download button:disabled{opacity:.65;cursor:wait}
+@media(max-width:680px){.sample-pack-download{align-items:stretch;flex-direction:column;gap:18px}.sample-pack-download .button{width:100%;justify-content:center;white-space:normal}}
