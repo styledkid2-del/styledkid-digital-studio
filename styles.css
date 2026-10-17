@@ -778,10 +778,15 @@ textarea { resize: vertical; }
 
 /* Accessibility refinements: keep small supporting text comfortably legible on light surfaces. */
 .page-index,
+.inner-hero .eyebrow,
+.brand:not(.footer-brand) .brand-light,
+.brand:not(.footer-brand) .brand-tagline,
 .contact-direct a span,
 .contact-form label span,
 .contact-form .form-hint,
 .contact-form .form-status,
+.price-name > span,
+.price-amount small,
 .price-note,
 .package-disclaimer,
 .package-count,
