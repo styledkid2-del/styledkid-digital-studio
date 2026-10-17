@@ -117,6 +117,8 @@ if (form && preview && status) {
       status.classList.add("is-success");
       status.textContent = "FormSubmit confirmed your submission, but this does not confirm the notification email reached the studio. We aim to reply by email within 2 business days. If you have not heard back, contact us on WhatsApp.";
       form.reset();
+      const timestampField = form.querySelector('input[name="_ts"]');
+      if (timestampField) timestampField.value = String(Date.now());
       if (output) output.hidden = true;
       if (detailsCount) detailsCount.textContent = "0 / 800 characters";
       if (submitButton) submitButton.textContent = "Enquiry sent ✓";
