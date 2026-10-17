@@ -604,3 +604,6 @@ textarea { resize: vertical; }
     transition: none;
   }
 }
+
+/* Distinguish enquiry progress, success and failure for sighted and screen-reader users. */
+.form-status.is-pending{background:#f1ead8;border-left-color:#a27b35;color:#5d471c}.form-status.is-success{background:#e4eadf;border-left-color:#718b62;color:#263b22}.form-status.is-error{background:#f7e4df;border-left-color:#b94c37;color:#782d20}
