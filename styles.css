@@ -810,3 +810,18 @@ textarea { resize: vertical; }
 .package-process-heading .eyebrow {
   color: #52694b;
 }
+
+/* Keep accent typography readable on the light editorial sections. */
+.section-heading h2 em,
+.pricing-intro h2 em,
+.faq-heading h2 em,
+.work-heading h2 em,
+.identity-stamp em,
+.founders-intro h2 em,
+.inner-hero h1 em,
+.about-story h2 em,
+.about-stamp strong em,
+.walkthrough-heading h2 em,
+.package-process-heading h2 em {
+  color: #435a3d;
+}
