@@ -904,3 +904,8 @@ textarea { resize: vertical; }
 .checklist-layout h2 em {
   color: #d9e8d5;
 }
+
+/* Finish contrast fixes for small labels inside illustrative portfolio artwork. */
+.concept-mini strong em { color: #435a3d; }
+.walkthrough-label { color: #6e4c36; }
+.check { color: #435a3d; }
