@@ -688,3 +688,71 @@ textarea { resize: vertical; }
 @media(max-width:360px){
   .price-arrow-label{white-space:normal}
 }
+
+
+/* Footer refinement: balanced three-column navigation and a unified bottom utility row. */
+.footer-top{
+  grid-template-columns:minmax(0,1.45fr) minmax(150px,.8fr) minmax(150px,.8fr);
+  gap:clamp(28px,5vw,72px);
+  padding-top:52px;
+  padding-bottom:42px;
+}
+.footer-top>.back-top{display:none}
+.footer-promise{font-size:20px;max-width:290px}
+.footer-email,.footer-whatsapp{font-size:12px;line-height:1.6}
+.footer-links-group{gap:5px}
+.footer-links-group h2{font-size:12px;margin:4px 0 9px}
+.footer-links-group a{
+  display:flex;
+  align-items:center;
+  min-height:40px;
+  padding:6px 0;
+  font-size:13px;
+  line-height:1.45;
+}
+.footer-bottom{
+  display:grid;
+  grid-template-columns:auto minmax(180px,1fr) auto auto;
+  align-items:center;
+  gap:18px 28px;
+  padding-top:17px;
+  padding-bottom:19px;
+  font-size:11px;
+  line-height:1.5;
+}
+.footer-bottom .back-top{
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-end;
+  min-height:44px;
+  padding:8px 0 8px 10px;
+  color:#d9e8d5;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+.footer-bottom a{min-height:40px;display:inline-flex;align-items:center}
+.footer-bottom .back-top:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){
+  .footer-top{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:24px}
+  .footer-bottom{grid-template-columns:auto 1fr auto;gap:12px 18px}
+  .footer-bottom .back-top{grid-column:3;grid-row:1}
+}
+@media(max-width:680px){
+  .footer-top{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 22px;padding-top:38px;padding-bottom:30px}
+  .footer-brand-column{grid-column:1/-1}
+  .footer-promise{font-size:19px;margin:19px 0 14px}
+  .footer-email,.footer-whatsapp{font-size:12px}
+  .footer-links-group{gap:4px}
+  .footer-links-group h2{font-size:11px;margin-bottom:5px}
+  .footer-links-group a{font-size:13px;min-height:42px}
+  .footer-bottom{grid-template-columns:1fr;gap:5px;padding-top:13px;padding-bottom:18px}
+  .footer-bottom .back-top{grid-column:auto;grid-row:auto;justify-content:flex-start;padding-left:0;margin-top:3px}
+  .footer-bottom>span,.footer-bottom>a:not(.back-top){min-height:30px}
+}
+@media(max-width:380px){
+  .footer-top{grid-template-columns:1fr;gap:22px}
+  .footer-brand-column{grid-column:auto}
+  .footer-links-group a{min-height:44px}
+}
