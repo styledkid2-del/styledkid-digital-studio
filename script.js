@@ -55,6 +55,43 @@ if (menuButton && nav) {
   });
 }
 
+/* Guided service picker: recommend a realistic starting point without promising a quote. */
+const pickerForm = document.querySelector("#service-picker-form");
+if (pickerForm) {
+  pickerForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const goal = pickerForm.querySelector('input[name="picker-goal"]:checked')?.value || "unsure";
+    const budget = pickerForm.querySelector('input[name="picker-budget"]:checked')?.value || "unsure";
+    const result = document.querySelector("#picker-result");
+    const title = document.querySelector("#picker-result-title");
+    const copy = document.querySelector("#picker-result-copy");
+    const link = document.querySelector("#picker-result-link");
+    const choices = {
+      brand: { service: "Brand basics", package: "The Essentials", price: "The Essentials starts at KSh 1,500.", desc: "A clearer business bio, offer wording and brand direction can help you make a more confident first impression." },
+      social: { service: "Social content", package: "The Content Kit", price: "The Content Kit starts at KSh 3,500.", desc: "Start with practical post ideas, captions and content direction you can use to show up more consistently." },
+      website: { service: "Digital launch kit / simple website", package: "The Digital Starter", price: "The Digital Starter starts at KSh 7,500.", desc: "A focused one-page website with a clear contact path may be a good fit when people need one place to understand your business." },
+      unsure: { service: "I'm not sure yet", package: "Let's discuss the scope first", price: "You do not need to choose a package yet.", desc: "Tell us what your business does, what feels difficult and what you can comfortably invest. We can help you choose a sensible first step." }
+    };
+    let choice = choices[goal];
+    let note = choice.price;
+    if (budget === "under" && goal !== "brand" && goal !== "unsure") {
+      choice = choices.brand;
+      note = "With a budget under KSh 2,000, consider starting with the essentials (from KSh 1,500) and building from there.";
+    } else if (budget === "mid" && goal === "website") {
+      note = "A full Digital Starter begins at KSh 7,500, above this budget. We can discuss a smaller first step or help you plan toward it.";
+    } else if (budget === "under" && goal === "unsure") {
+      choice = choices.brand;
+      note = "The Essentials starts at KSh 1,500 and may be a manageable first step while you clarify your wider goals.";
+    }
+    title.textContent = choice.package;
+    copy.textContent = choice.desc + " " + note;
+    link.href = "contact.html?service=" + encodeURIComponent(choice.service) + "&budget=" + encodeURIComponent(budget === "under" ? "Under KSh 2,000" : budget === "mid" ? "KSh 2,000–5,000" : budget === "high" ? "KSh 5,000–10,000" : "Not sure yet") + "#project-form";
+    result.hidden = false;
+    trackStudioEvent("Service Picker Completed", { goal, budget, recommendation: choice.service });
+    result.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
+  });
+}
+
 const year = document.querySelector("#year");
 if (year) year.textContent = new Date().getFullYear();
 
@@ -249,7 +286,15 @@ document.querySelectorAll("[data-enquiry-value]").forEach(function (link) {
 if (form) {
   const requestedService = new URLSearchParams(window.location.search).get("service");
   const serviceField = document.getElementById("need");
-  if (requestedService && serviceField) {
+    const requestedBudget = new URLSearchParams(window.location.search).get("budget");
+  const budgetField = document.getElementById("budget");
+  if (requestedBudget && budgetField) {
+    const normaliseBudget = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\\s+/g, " ");
+    const requested = normaliseBudget(requestedBudget);
+    const matchingBudget = Array.from(budgetField.options).find((option) => normaliseBudget(option.text) === requested);
+    if (matchingBudget) budgetField.value = matchingBudget.value;
+  }
+if (requestedService && serviceField) {
     const normaliseService = (value) => value
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, " ")
