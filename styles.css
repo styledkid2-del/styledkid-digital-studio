@@ -776,7 +776,7 @@ textarea { resize: vertical; }
 @media(max-width:480px){.founder-card{grid-template-columns:76px minmax(0,1fr);gap:14px;padding:15px}.founder-photo-placeholder{width:76px}.founder-photo-placeholder span{font-size:42px}.founder-copy h3{font-size:16px}.founder-copy p:last-child{font-size:13px}}
 
 
-/* Accessibility refinements: keep small supporting text comfortably legible on light surfaces. */
+/* Accessibility refinements: readable muted text and accent text on light surfaces. */
 .page-index,
 .inner-hero .eyebrow,
 .brand:not(.footer-brand) .brand-light,
@@ -793,4 +793,20 @@ textarea { resize: vertical; }
 .package-detail .eyebrow,
 .package-cost small {
   color: #626458;
+}
+.eyebrow,
+.inner-hero .eyebrow,
+.hero h1 em,
+.section-heading h2 em,
+.process-heading h2 em,
+.pricing-intro h2 em,
+.contact-copy h2 em,
+.inner-hero h1 em,
+.page-note-band h2 em,
+.about-story h2 em,
+.about-stamp strong em,
+.founders-intro h2 em,
+.walkthrough-heading h2 em,
+.package-process-heading .eyebrow {
+  color: #52694b;
 }
