@@ -623,3 +623,23 @@ textarea { resize: vertical; }
 .walkthrough-grid ul{padding-left:18px;margin:10px 0 0}
 .walkthrough-permission{max-width:700px;font-size:12px;line-height:1.9;color:var(--muted);margin:25px 0}
 @media(max-width:680px){.project-walkthrough{padding-top:55px;padding-bottom:60px}.walkthrough-grid{grid-template-columns:1fr}.walkthrough-grid article{padding:22px 18px}}
+
+/* Consistent quote CTA and always-visible mobile enquiry path. */
+.mobile-header-cta{display:none}
+@media(max-width:800px){
+  .site-header{gap:12px}
+  .mobile-header-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 12px;background:#172a24;color:#fffdf7;border:1px solid #172a24;border-radius:3px;font-size:11px;font-weight:700;white-space:nowrap;flex:0 0 auto}
+  .mobile-header-cta span{color:#d9e8d5;font-size:15px}
+  .nav .nav-cta{display:none}
+  .brand{min-width:0}
+  .menu-toggle{margin-left:auto}
+}
+@media(max-width:380px){
+  .site-header{padding-inline:12px;gap:6px}
+  .brand{gap:7px}
+  .brand-mark{width:34px;height:34px;font-size:21px}
+  .brand-name{font-size:12px;letter-spacing:.08em}
+  .brand-tagline{display:none}
+  .mobile-header-cta{padding-inline:9px;font-size:10px;gap:5px;min-height:42px}
+  .menu-toggle{flex-basis:42px;width:42px;height:42px}
+}
