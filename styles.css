@@ -870,3 +870,9 @@ textarea { resize: vertical; }
 @media(max-width:760px){.service-picker-section,.checklist-layout{grid-template-columns:1fr;gap:28px}.service-picker fieldset:nth-of-type(2){grid-template-columns:1fr 1fr}.service-picker-section{padding-top:55px;padding-bottom:55px}.checklist-layout{gap:25px}}
 @media(max-width:420px){.service-picker fieldset:nth-of-type(2){grid-template-columns:1fr}.picker-option{padding:12px 10px}}
 @media(prefers-reduced-motion:reduce){.service-picker-section *{scroll-behavior:auto}}
+
+/* Preserve high contrast for accent headings on dark green panels. */
+.hero h1 em,
+.process-heading h2 em {
+  color: #d9e8d5;
+}
