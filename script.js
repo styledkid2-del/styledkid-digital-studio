@@ -289,7 +289,7 @@ if (form) {
     const requestedBudget = new URLSearchParams(window.location.search).get("budget");
   const budgetField = document.getElementById("budget");
   if (requestedBudget && budgetField) {
-    const normaliseBudget = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\\s+/g, " ");
+    const normaliseBudget = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
     const requested = normaliseBudget(requestedBudget);
     const matchingBudget = Array.from(budgetField.options).find((option) => normaliseBudget(option.text) === requested);
     if (matchingBudget) budgetField.value = matchingBudget.value;
