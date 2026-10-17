@@ -909,3 +909,7 @@ textarea { resize: vertical; }
 .concept-mini strong em { color: #435a3d; }
 .walkthrough-label { color: #6e4c36; }
 .check { color: #435a3d; }
+
+/* Keep the hero CTA arrow and ticker accents readable against pale backgrounds. */
+.hero .button-dark span { color: #172a24; }
+.ticker span { color: #782d20; }
