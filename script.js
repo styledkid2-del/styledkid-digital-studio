@@ -70,11 +70,12 @@ if (pickerForm) {
       brand: { service: "Brand basics", package: "The Essentials", price: "The Essentials starts at KSh 1,500.", desc: "A clearer business bio, offer wording and brand direction can help you make a more confident first impression." },
       social: { service: "Social content", package: "The Content Kit", price: "The Content Kit starts at KSh 3,500.", desc: "Start with practical post ideas, captions and content direction you can use to show up more consistently." },
       website: { service: "Digital launch kit / simple website", package: "The Digital Starter", price: "The Digital Starter starts at KSh 7,500.", desc: "A focused one-page website with a clear contact path may be a good fit when people need one place to understand your business." },
+      "custom-website": { service: "Website / web development", package: "A tailored website quote", price: "Custom website projects are quoted after we understand the scope.", desc: "Tell us about the pages, features and customer journey you have in mind. We’ll confirm what we can deliver, the timeline and a tailored price before work begins. The Digital Starter price applies only to the defined one-page offer." },
       unsure: { service: "I'm not sure yet", package: "Let's discuss the scope first", price: "You do not need to choose a package yet.", desc: "Tell us what your business does, what feels difficult and what you can comfortably invest. We can help you choose a sensible first step." }
     };
     let choice = choices[goal];
     let note = choice.price;
-    if (budget === "under" && goal !== "brand" && goal !== "unsure") {
+    if (budget === "under" && goal !== "brand" && goal !== "unsure" && goal !== "custom-website") {
       choice = choices.brand;
       note = "With a budget under KSh 2,000, consider starting with the essentials (from KSh 1,500) and building from there.";
     } else if (budget === "mid" && goal === "website") {
