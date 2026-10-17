@@ -1,16 +1,42 @@
 const menuButton = document.querySelector(".menu-toggle");
 const nav = document.querySelector("#main-nav");
+
+if (nav) {
+  // Mark the current page for assistive technology and make navigation easier to scan.
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  nav.querySelectorAll("a[href]").forEach((link) => {
+    const href = link.getAttribute("href") || "";
+    if (!href.startsWith("#") && href.split("?")[0].split("#")[0] === currentPage) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
 if (menuButton && nav) {
+  const closeMenu = () => {
+    nav.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "Open menu");
+  };
+
   menuButton.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("open");
     menuButton.setAttribute("aria-expanded", String(isOpen));
     menuButton.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
   });
-  nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
-    nav.classList.remove("open");
-    menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "Open menu");
-  }));
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("open")) {
+      closeMenu();
+      menuButton.focus();
+    }
+  });
 }
 
 const year = document.querySelector("#year");
@@ -176,18 +202,6 @@ if (detailsField && detailsCount) {
   detailsField.addEventListener("input", updateCount);
   updateCount();
 }
-
-if (menuButton && nav) {
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && nav.classList.contains("open")) {
-      nav.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
-      menuButton.setAttribute("aria-label", "Open menu");
-      menuButton.focus();
-    }
-  });
-}
-
 
 document.querySelectorAll("[data-enquiry-value]").forEach(function (link) {
   link.addEventListener("click", function () {
