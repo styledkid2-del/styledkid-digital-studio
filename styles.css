@@ -825,3 +825,10 @@ textarea { resize: vertical; }
 .package-process-heading h2 em {
   color: #435a3d;
 }
+
+/* Final contrast fixes for the standard inner heroes and dark homepage hero. */
+.inner-hero .inner-lead { color: #42473e; }
+.inner-hero .eyebrow,
+.inner-hero .page-index { color: #435a3d; }
+.hero-proof small { color: #e1e7db; }
+.status-pill { color: #435a3d; }
