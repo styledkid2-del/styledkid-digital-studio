@@ -607,3 +607,19 @@ textarea { resize: vertical; }
 
 /* Distinguish enquiry progress, success and failure for sighted and screen-reader users. */
 .form-status.is-pending{background:#f1ead8;border-left-color:#a27b35;color:#5d471c}.form-status.is-success{background:#e4eadf;border-left-color:#718b62;color:#263b22}.form-status.is-error{background:#f7e4df;border-left-color:#b94c37;color:#782d20}
+
+
+/* Honest portfolio walkthrough: illustrative only, with no fabricated client outcomes. */
+.project-walkthrough{padding-top:78px;padding-bottom:84px;border-top:1px solid var(--line)}
+.walkthrough-heading{max-width:700px;margin-bottom:34px}
+.walkthrough-heading h2{font-family:var(--display);font-size:clamp(34px,5vw,56px);line-height:1.04;letter-spacing:-.065em;margin:0 0 16px}
+.walkthrough-heading h2 em{font-family:var(--serif);font-weight:400;color:#819873}
+.walkthrough-heading>p:last-child{max-width:650px;font-size:13px;line-height:1.9;color:var(--muted)}
+.walkthrough-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.walkthrough-grid article{padding:25px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}
+.walkthrough-label{font-size:9px;letter-spacing:.12em;font-weight:700;color:#8a684f}
+.walkthrough-grid h3{font-family:var(--display);font-size:21px;line-height:1.2;letter-spacing:-.04em;margin:16px 0 10px}
+.walkthrough-grid p,.walkthrough-grid li{font-size:12px;line-height:1.9;color:var(--muted)}
+.walkthrough-grid ul{padding-left:18px;margin:10px 0 0}
+.walkthrough-permission{max-width:700px;font-size:12px;line-height:1.9;color:var(--muted);margin:25px 0}
+@media(max-width:680px){.project-walkthrough{padding-top:55px;padding-bottom:60px}.walkthrough-grid{grid-template-columns:1fr}.walkthrough-grid article{padding:22px 18px}}
