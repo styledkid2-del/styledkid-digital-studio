@@ -266,7 +266,6 @@ if (form) {
 const floatingWhatsApp = document.createElement("a");
 floatingWhatsApp.className = "floating-whatsapp";
 floatingWhatsApp.href = "https://wa.me/254740354169";
-floatingWhatsApp.addEventListener("click", () => trackStudioEvent("WhatsApp Click", { placement: "floating" }));
 floatingWhatsApp.target = "_blank";
 floatingWhatsApp.rel = "noopener noreferrer";
 floatingWhatsApp.setAttribute("aria-label", "Chat with Kioo Studio on WhatsApp");
