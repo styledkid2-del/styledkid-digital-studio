@@ -876,3 +876,31 @@ textarea { resize: vertical; }
 .process-heading h2 em {
   color: #d9e8d5;
 }
+
+/* Contrast-safe accent colours on pale surfaces; dark panels keep their light overrides. */
+.inner-hero h1 em,
+.about-story h2 em,
+.identity-stamp em,
+.founders-intro h2 em,
+.about-stamp strong em,
+.walkthrough-heading h2 em,
+.section-heading h2 em,
+.pricing-intro h2 em,
+.faq-heading h2 em,
+.work-heading h2 em,
+.picker-intro h2 em {
+  color: #435a3d;
+}
+.contact-copy h2 em,
+.service-card .service-number,
+.post-footer span,
+.launch-monogram em,
+.check.pending {
+  color: #782d20;
+}
+.page-note-band h2 em,
+.hero h1 em,
+.process-heading h2 em,
+.checklist-layout h2 em {
+  color: #d9e8d5;
+}
