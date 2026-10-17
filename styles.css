@@ -832,3 +832,41 @@ textarea { resize: vertical; }
 .inner-hero .page-index { color: #435a3d; }
 .hero-proof small { color: #e1e7db; }
 .status-pill { color: #435a3d; }
+
+/* Guided service picker and free preparation checklist */
+.service-picker-section{display:grid;grid-template-columns:.85fr 1fr;gap:clamp(32px,7vw,90px);padding-top:clamp(60px,8vw,100px);padding-bottom:clamp(60px,8vw,100px);align-items:start}
+.picker-intro h2,.checklist-layout h2{font-family:var(--display);font-size:clamp(34px,4.8vw,58px);line-height:1.04;letter-spacing:-.065em;margin:0 0 18px}
+.picker-intro h2 em,.checklist-layout h2 em{font-family:var(--serif);font-weight:400;color:#435a3d}
+.picker-intro>p:last-child,.checklist-layout>div:first-child>p:last-child{max-width:450px;color:#56594f;font-size:14px}
+.service-picker{border:1px solid var(--line);background:#fffdf8;padding:clamp(20px,3vw,34px);border-radius:4px}
+.service-picker fieldset{border:0;padding:0;margin:0 0 26px;min-width:0}
+.service-picker legend{font-weight:800;font-size:14px;margin-bottom:14px}
+.service-picker legend span{color:#9f482a;font-size:11px;letter-spacing:.12em;margin-right:8px}
+.picker-option{display:flex;gap:12px;align-items:flex-start;padding:14px 12px;border:1px solid var(--line);margin-top:8px;border-radius:3px;cursor:pointer}
+.picker-option:has(input:checked),.picker-budget:has(input:checked){border-color:#435a3d;background:#f0f4ec}
+.picker-option input,.picker-budget input{accent-color:#435a3d;margin-top:4px;flex:0 0 auto}
+.picker-option strong{display:block;font-size:13px;line-height:1.45}
+.picker-option small{display:block;font-size:12px;line-height:1.5;color:#56594f;margin-top:3px}
+.service-picker fieldset:nth-of-type(2){display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.service-picker fieldset:nth-of-type(2) legend{grid-column:1/-1}
+.picker-budget{display:flex;align-items:center;gap:8px;padding:11px;border:1px solid var(--line);border-radius:3px;font-size:12px;cursor:pointer}
+.picker-result{margin-top:24px;padding:22px;background:#eaf0e4;border-left:3px solid #435a3d}
+.picker-result h3{font-size:23px;line-height:1.2;margin:4px 0 10px}
+.picker-result>p:not(.eyebrow){font-size:13px;color:#34392f}
+.picker-result .eyebrow{color:#435a3d}
+.picker-disclaimer{font-size:11px!important;color:#56594f!important}
+.starter-checklist-strip{background:#172a24;color:#f8f5eb;padding:clamp(55px,7vw,86px) 0}
+.checklist-layout{display:grid;grid-template-columns:1fr .78fr;gap:clamp(32px,7vw,90px);align-items:center}
+.checklist-layout .eyebrow{color:#c5d5bb}
+.checklist-layout h2 em{color:#c7d7bd}
+.checklist-layout>div:first-child>p:last-child{color:#d2d8ce}
+.checklist-card{background:#fffdf8;color:#20221d;padding:clamp(22px,3vw,34px);border-radius:4px}
+.checklist-card-label{font-size:10px;letter-spacing:.13em;font-weight:800;color:#435a3d}
+.checklist-card h3{font-family:var(--display);font-size:24px;line-height:1.2;margin:8px 0 14px}
+.checklist-card ul{padding-left:19px;color:#42473e;font-size:13px}
+.checklist-card li{padding:4px 0}
+.checklist-card .button-outline{display:inline-flex;margin-top:10px;border-color:#56594f;color:#20221d}
+.service-picker :focus-visible,.checklist-card a:focus-visible{outline:3px solid #9f482a;outline-offset:3px}
+@media(max-width:760px){.service-picker-section,.checklist-layout{grid-template-columns:1fr;gap:28px}.service-picker fieldset:nth-of-type(2){grid-template-columns:1fr 1fr}.service-picker-section{padding-top:55px;padding-bottom:55px}.checklist-layout{gap:25px}}
+@media(max-width:420px){.service-picker fieldset:nth-of-type(2){grid-template-columns:1fr}.picker-option{padding:12px 10px}}
+@media(prefers-reduced-motion:reduce){.service-picker-section *{scroll-behavior:auto}}
