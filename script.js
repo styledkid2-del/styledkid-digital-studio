@@ -229,3 +229,24 @@ if (form) {
     if (matchingOption) serviceField.value = matchingOption.value;
   }
 }
+
+
+/* Keep a direct-contact route available, but never cover the enquiry form while it is in view. */
+const floatingWhatsApp = document.createElement("a");
+floatingWhatsApp.className = "floating-whatsapp";
+floatingWhatsApp.href = "https://wa.me/254740354169";
+floatingWhatsApp.target = "_blank";
+floatingWhatsApp.rel = "noopener noreferrer";
+floatingWhatsApp.setAttribute("aria-label", "Chat with Kioo Studio on WhatsApp");
+floatingWhatsApp.innerHTML = 'Chat on WhatsApp <span aria-hidden="true">↗</span>';
+document.body.append(floatingWhatsApp);
+
+const enquiryForm = document.querySelector("#project-form, .contact-form");
+if (enquiryForm && "IntersectionObserver" in window) {
+  const contactVisibility = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      floatingWhatsApp.hidden = entry.isIntersecting;
+    });
+  }, { threshold: 0.08 });
+  contactVisibility.observe(enquiryForm);
+}
