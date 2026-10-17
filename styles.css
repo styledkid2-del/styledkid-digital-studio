@@ -1008,3 +1008,314 @@ textarea { resize: vertical; }
     font-size: 10px;
   }
 }
+
+
+/* -------------------------------------------------------------------------
+   Kioo Studio card system — consistent rhythm, robust grids and usable CTAs.
+   Keep the editorial palette and existing component-specific artwork.
+   ------------------------------------------------------------------------- */
+:where(.services-grid, .page-card-grid, .concept-grid, .founders-grid, .walkthrough-grid) {
+  align-items: stretch;
+}
+:where(.service-card, .page-service-card, .concept-card, .founder-card,
+       .checklist-card, .picker-result, .package-detail, .walkthrough-grid > article) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+:where(.service-card, .page-service-card) {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid rgba(23, 42, 36, .12);
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(32, 34, 29, .025);
+}
+.service-card > p {
+  min-height: 0;
+  flex: 0 0 auto;
+  margin-bottom: 16px;
+  overflow-wrap: anywhere;
+}
+.service-card ul,
+.page-service-card ul {
+  margin-top: 0;
+  margin-bottom: 22px;
+  flex: 1 0 auto;
+}
+:where(.service-card .service-link, .page-service-card .service-link) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  margin-top: auto;
+  padding: 12px 0 2px;
+  line-height: 1.45;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+:where(.service-card .service-link span, .page-service-card .service-link span) {
+  flex: 0 0 auto;
+}
+:where(.service-card h3, .page-service-card h2, .concept-caption h2,
+       .founder-copy h3, .checklist-card h3, .picker-result h3) {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+:where(.service-visual, .concept-art) {
+  min-width: 0;
+  max-width: 100%;
+}
+.concept-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.concept-art {
+  flex: 0 0 auto;
+  width: 100%;
+}
+.concept-caption {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  flex: 1 0 auto;
+  min-width: 0;
+  padding: 20px;
+}
+.concept-caption > div {
+  min-width: 0;
+}
+.concept-caption h2 {
+  line-height: 1.2;
+  margin-top: 0;
+}
+.concept-caption > span {
+  max-width: 42%;
+  flex: 0 1 auto;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+.founder-card {
+  min-width: 0;
+  align-items: start;
+  height: 100%;
+}
+.founder-copy {
+  min-width: 0;
+}
+:where(.picker-option, .picker-budget) {
+  min-width: 0;
+  min-height: 44px;
+  align-items: center;
+  overflow-wrap: anywhere;
+}
+.picker-option input,
+.picker-budget input {
+  width: 18px;
+  height: 18px;
+}
+.picker-option > span,
+.picker-budget > span {
+  min-width: 0;
+}
+.picker-result[hidden] {
+  display: none !important;
+}
+.picker-result .button,
+.checklist-card .button {
+  max-width: 100%;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.checklist-card ul {
+  margin-bottom: 16px;
+}
+.package-detail {
+  grid-template-columns: 32px minmax(0, 1fr) minmax(145px, .42fr);
+  gap: clamp(12px, 2vw, 24px);
+  border: 1px solid transparent;
+  border-bottom-color: var(--line);
+  border-radius: 4px;
+  margin-bottom: 8px;
+  padding: clamp(20px, 3vw, 32px);
+}
+.package-detail:first-child {
+  border-top: 1px solid var(--line);
+}
+.package-detail > * {
+  min-width: 0;
+}
+.package-detail ul {
+  gap: 7px 18px;
+}
+.package-cost {
+  min-width: 0;
+}
+.package-cost strong {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.2;
+}
+.package-cost .button {
+  margin-top: 8px;
+  min-height: 44px;
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.price-row {
+  min-width: 0;
+  align-items: center;
+}
+.price-row > * {
+  min-width: 0;
+}
+.price-name,
+.price-amount {
+  overflow-wrap: anywhere;
+}
+.price-row .price-arrow {
+  min-width: 44px;
+  min-height: 44px;
+  max-width: 100%;
+}
+:where(.service-card, .page-service-card, .concept-card, .founder-card,
+       .package-detail, .checklist-card, .picker-option, .picker-budget,
+       .price-row, .walkthrough-grid > article) {
+  scroll-margin-top: 100px;
+}
+:where(.service-link, .price-arrow, .package-cost .button,
+       .picker-result .button, .checklist-card .button):focus-visible {
+  outline: 3px solid #9f482a;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+@media (min-width: 901px) {
+  .services-grid,
+  .page-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(14px, 1.6vw, 22px);
+  }
+  .concept-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(14px, 1.6vw, 22px);
+  }
+}
+@media (max-width: 900px) {
+  .services-grid,
+  .page-card-grid,
+  .concept-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .package-detail {
+    grid-template-columns: 28px minmax(0, 1fr) minmax(135px, .42fr);
+    gap: 12px;
+  }
+}
+@media (max-width: 680px) {
+  .services-grid,
+  .page-card-grid,
+  .concept-grid,
+  .founders-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+  :where(.service-card, .page-service-card) {
+    padding: clamp(20px, 5vw, 25px);
+  }
+  .service-visual {
+    height: clamp(160px, 52vw, 205px);
+  }
+  .concept-caption {
+    padding: 17px;
+    gap: 12px;
+  }
+  .package-detail {
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 8px 12px;
+    padding: 22px 14px;
+  }
+  .package-detail .package-cost {
+    grid-column: 2;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+  .package-cost .button {
+    width: fit-content;
+    max-width: 100%;
+  }
+  .founder-card {
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 14px;
+    padding: 16px;
+  }
+  .founder-photo-placeholder {
+    width: 84px;
+  }
+  .price-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  .price-row .price-arrow {
+    grid-column: 1;
+    grid-row: auto;
+    justify-content: flex-start;
+    margin-left: 0;
+    padding: 10px 0 0;
+    border-top: 1px solid var(--line);
+    text-align: left;
+  }
+  .price-arrow-label {
+    text-align: left;
+  }
+}
+@media (max-width: 380px) {
+  .service-card,
+  .page-service-card {
+    padding: 18px;
+  }
+  .concept-caption {
+    display: block;
+  }
+  .concept-caption > span {
+    display: block;
+    max-width: 100%;
+    margin-top: 8px;
+    text-align: left;
+  }
+  .founder-card {
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+  .founder-photo-placeholder {
+    width: 68px;
+  }
+  .founder-photo-placeholder span {
+    font-size: 38px;
+  }
+  .package-detail {
+    padding: 18px 10px;
+  }
+  .picker-option {
+    padding: 12px 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(.service-card, .page-service-card, .concept-card, .price-row) {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
