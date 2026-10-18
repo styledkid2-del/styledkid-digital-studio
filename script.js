@@ -161,7 +161,7 @@ if (form && preview && status) {
       let response;
       let result;
       try {
-        response = await fetch("https://formsubmit.app/f/6jnzxw4btk", {
+        response = await fetch("https://formsubmit.app/f/92dess2wnx", {
           method: "POST",
           headers: { "Accept": "application/json" },
           body: payload,
@@ -204,7 +204,7 @@ if (emailButton && preview && status) {
   emailButton.addEventListener("click", () => {
     const subject = "Kioo Studio enquiry";
     const body = preview.value;
-    window.location.href = "mailto:doreennkonge81@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    window.location.href = "mailto:hello.kioostudio@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     status.textContent = "Your email app should open with the enquiry addressed to the studio. Review it and press Send to deliver it.";
   });
 }
