@@ -107,6 +107,10 @@ const downloadButton = document.querySelector("#download-enquiry");
 const detailsField = document.querySelector("#details");
 const detailsCount = document.querySelector("#details-count");
 
+// Give the form a page-load timestamp for the provider’s spam-timing check.
+const formTimestamp = form?.querySelector('input[name="_ts"]');
+if (formTimestamp) formTimestamp.value = String(Date.now());
+
 if (form && preview && status) {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
