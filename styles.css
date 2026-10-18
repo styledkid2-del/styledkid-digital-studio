@@ -1668,3 +1668,9 @@ textarea { resize: vertical; }
   .custom-web-quote { align-items: stretch; flex-direction: column; gap: 18px; }
   .custom-web-quote .button { width: 100%; justify-content: space-between; }
 }
+
+
+/* Founder social profile link */
+.founder-social-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;color:#315a43;font-size:12px;font-weight:700;text-decoration:underline;text-decoration-color:#b9c8b6;text-underline-offset:4px;}
+.founder-social-link:hover{color:#172a24;text-decoration-color:currentColor;}
+.founder-social-link:focus-visible{outline:2px solid #315a43;outline-offset:4px;border-radius:2px;}
