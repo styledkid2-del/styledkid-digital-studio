@@ -1674,3 +1674,12 @@ textarea { resize: vertical; }
 .founder-social-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;color:#315a43;font-size:12px;font-weight:700;text-decoration:underline;text-decoration-color:#b9c8b6;text-underline-offset:4px;}
 .founder-social-link:hover{color:#172a24;text-decoration-color:currentColor;}
 .founder-social-link:focus-visible{outline:2px solid #315a43;outline-offset:4px;border-radius:2px;}
+
+
+/* Site-wide social links for the founders' public profiles */
+.footer-socials{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:15px;max-width:100%;}
+.footer-socials-label{flex-basis:100%;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#e4e9df;font-weight:700;}
+.footer-socials a{font-size:10px;color:#c8d0c3;text-decoration:underline;text-decoration-color:#718579;text-underline-offset:4px;}
+.footer-socials a span{margin-left:4px;color:#d9e8d5;}
+.footer-socials a:hover{color:#fffdf7;text-decoration-color:currentColor;}
+.footer-socials a:focus-visible{outline:2px solid #d9e8d5;outline-offset:4px;border-radius:2px;}
