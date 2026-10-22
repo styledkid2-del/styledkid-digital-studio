@@ -1907,3 +1907,15 @@ textarea { resize: vertical; }
 .styledkid-mock-categories span{margin-top:6px;color:#77816e;font-size:6px;font-weight:700;letter-spacing:.1em}
 .styledkid-mock-categories strong{padding-bottom:7px;margin-top:3px;font-family:var(--display);font-size:8px;line-height:1.2;color:#2f3730}
 @media(max-width:680px){.package-checklist{align-items:stretch;flex-direction:column;margin-bottom:48px}.package-checklist .button{width:100%;justify-content:center}.contact-checklist-link{font-size:12px}.styledkid-mock-header{gap:6px}.styledkid-mock-header strong{font-size:13px}.styledkid-mock-header span{font-size:6px}.styledkid-mock-categories{gap:4px;padding:7px}.styledkid-mock-categories span,.styledkid-mock-categories strong{padding-left:4px;padding-right:4px}}
+
+
+/* Wide, responsive layout for the school case study. */
+.real-case-card-school{grid-column:1/-1;background:linear-gradient(115deg,#eef1e7 0%,#eef1e7 52%,#f3eee4 52%,#f3eee4 100%)}
+.real-case-school-layout{display:grid;grid-template-areas:"copy image";grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(22px,4vw,46px);align-items:start;padding-top:22px}
+.real-case-card-school .case-study-preview{grid-area:image;min-width:0;margin:0}
+.real-case-card-school .case-study-preview figcaption{font-size:10px}
+.real-case-school-copy{grid-area:copy;display:flex;flex-direction:column;min-width:0}
+.real-case-school-copy .real-case-kicker{margin:0 0 8px}
+.real-case-school-copy .real-case-summary{max-width:none}
+.real-case-school-copy .real-case-link{margin-top:4px}
+@media(max-width:680px){.real-case-card-school{grid-column:auto}.real-case-school-layout{grid-template-areas:"image" "copy";grid-template-columns:1fr;gap:22px}}
