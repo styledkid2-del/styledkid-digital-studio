@@ -1904,6 +1904,6 @@ textarea { resize: vertical; }
 .styledkid-mock-categories article{min-width:0;border:1px solid #ece7dd;background:white}
 .styledkid-mock-categories img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border:0}
 .styledkid-mock-categories span,.styledkid-mock-categories strong{display:block;padding:0 6px}
-.styledkid-mock-categories span{margin-top:6px;color:#77816e;font-size:5px;font-weight:700;letter-spacing:.1em}
+.styledkid-mock-categories span{margin-top:6px;color:#77816e;font-size:6px;font-weight:700;letter-spacing:.1em}
 .styledkid-mock-categories strong{padding-bottom:7px;margin-top:3px;font-family:var(--display);font-size:8px;line-height:1.2;color:#2f3730}
 @media(max-width:680px){.package-checklist{align-items:stretch;flex-direction:column;margin-bottom:48px}.package-checklist .button{width:100%;justify-content:center}.contact-checklist-link{font-size:12px}.styledkid-mock-header{gap:6px}.styledkid-mock-header strong{font-size:13px}.styledkid-mock-header span{font-size:6px}.styledkid-mock-categories{gap:4px;padding:7px}.styledkid-mock-categories span,.styledkid-mock-categories strong{padding-left:4px;padding-right:4px}}
