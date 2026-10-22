@@ -2102,3 +2102,24 @@ textarea { resize: vertical; }
 /* Package previews demonstrate direction without implying guaranteed deliverables. */
 .package-preview-image{display:block;width:100%;max-width:430px;height:auto;aspect-ratio:16/9;object-fit:cover;margin:17px 0 6px;border:1px solid rgba(32,34,29,.12);background:#e8e9df}
 @media(max-width:680px){.package-preview-image{max-width:100%;margin-top:14px}}
+
+/* Honour reduced-motion preferences across every page, including the animated ticker and smooth scrolling. */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .ticker div {
+    animation: none !important;
+    transform: none !important;
+  }
+}
