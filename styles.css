@@ -758,7 +758,7 @@ textarea { resize: vertical; }
 }
 
 
-/* About page founder introduction — intentionally image-free until real photos are supplied. */
+/* Founder profiles: use Doreen’s supplied portrait and retain Kelly’s monogram until a portrait is available. */
 .founders-section{padding-top:clamp(58px,8vw,105px);padding-bottom:clamp(60px,8vw,100px)}
 .founders-intro{max-width:700px;margin-bottom:34px}
 .founders-intro h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,56px);line-height:1.03;letter-spacing:-.025em;margin:12px 0 18px}
@@ -1746,7 +1746,7 @@ textarea { resize: vertical; }
   .service-card:hover,.page-service-card:hover,.concept-card:hover,.real-case-card:hover,.testimonial-card:hover,.price-row:hover {transform:none}
 }
 
-/* Founder identity marks: intentional studio monograms, not missing-photo placeholders. */
+/* Kelly’s founder mark remains an intentional studio monogram, not a missing-photo placeholder. */
 .founder-monogram {
   position: relative;
   display: flex;
@@ -1919,3 +1919,13 @@ textarea { resize: vertical; }
 .real-case-school-copy .real-case-summary{max-width:none}
 .real-case-school-copy .real-case-link{margin-top:4px}
 @media(max-width:680px){.real-case-card-school{grid-column:auto}.real-case-school-layout{grid-template-areas:"image" "copy";grid-template-columns:1fr;gap:22px}}
+
+
+/* Doreen's supplied founder portrait; keep the full square photo uncropped. */
+.founder-portrait{width:112px;margin:0;align-self:start}
+.founder-portrait img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;background:#eee1d5;border-radius:2px}
+.founder-portrait figcaption{display:flex;flex-direction:column;gap:2px;padding:6px 2px 0;text-align:center;color:#6a705f}
+.founder-portrait figcaption span{font-size:7px;line-height:1.35;font-weight:700;letter-spacing:.07em;text-transform:uppercase;overflow-wrap:anywhere}
+.founder-portrait .founder-portrait-index{font-size:6px;color:#6a705f}
+@media(max-width:900px){.founder-portrait{width:100px}}
+@media(max-width:480px){.founder-portrait{width:76px}.founder-portrait figcaption span{font-size:6px}.founder-portrait .founder-portrait-index{font-size:5px}}
