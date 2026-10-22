@@ -53,6 +53,28 @@ if (menuButton && nav) {
       menuButton.focus();
     }
   });
+
+  // Close the mobile menu when a visitor clicks outside it.
+  document.addEventListener("click", (event) => {
+    if (
+      nav.classList.contains("open") &&
+      !nav.contains(event.target) &&
+      !menuButton.contains(event.target)
+    ) {
+      closeMenu();
+    }
+  });
+
+  // Avoid carrying an open mobile-menu state across desktop/mobile resizing.
+  const mobileNavigation = window.matchMedia("(max-width: 680px)");
+  const resetNavigationOnResize = (event) => {
+    if (!event.matches && nav.classList.contains("open")) closeMenu();
+  };
+  if (typeof mobileNavigation.addEventListener === "function") {
+    mobileNavigation.addEventListener("change", resetNavigationOnResize);
+  } else if (typeof mobileNavigation.addListener === "function") {
+    mobileNavigation.addListener(resetNavigationOnResize);
+  }
 }
 
 /* Guided service picker: recommend a realistic starting point without promising a quote. */
