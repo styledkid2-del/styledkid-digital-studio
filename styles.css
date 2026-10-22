@@ -2097,3 +2097,8 @@ textarea { resize: vertical; }
 .page-service-card .page-card-symbol{margin-top:0}
 @media(max-width:900px){.page-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.page-service-card .service-preview-image{width:calc(100% + 52px)}}
 @media(max-width:600px){.page-card-grid{grid-template-columns:minmax(0,1fr);padding-top:34px;gap:14px}.page-service-card{padding:22px}.page-service-card .service-preview-image{width:calc(100% + 44px);margin:18px -22px 20px;aspect-ratio:1.55}.page-service-card .page-card-symbol{width:46px;height:46px;margin-bottom:18px}}
+
+
+/* Package previews demonstrate direction without implying guaranteed deliverables. */
+.package-preview-image{display:block;width:100%;max-width:430px;height:auto;aspect-ratio:16/9;object-fit:cover;margin:17px 0 6px;border:1px solid rgba(32,34,29,.12);background:#e8e9df}
+@media(max-width:680px){.package-preview-image{max-width:100%;margin-top:14px}}
