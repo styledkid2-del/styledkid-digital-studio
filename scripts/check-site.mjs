@@ -104,7 +104,7 @@ else fail("robots.txt is missing or does not reference sitemap.xml");
 
 if (!index.includes('href="styles.css"') || !css.length) fail("Stylesheet link or styles.css is missing");
 else pass("Stylesheet is present");
-if (!index.includes('href="favicon.svg"') || !existsSync(resolve(root, "favicon.svg"))) fail("Favicon reference or favicon.svg is missing");
+if (!/href=["'](?:\.\/)?favicon\.svg(?:\?[^"']*)?["']/i.test(index) || !existsSync(resolve(root, "favicon.svg"))) fail("Favicon reference or favicon.svg is missing");
 else pass("Favicon is present");
 
 const workflowDir = resolve(root, ".github/workflows");
