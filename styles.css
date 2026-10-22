@@ -1745,3 +1745,69 @@ textarea { resize: vertical; }
   .project-journey-list li,.real-case-link span,.service-link span {transition:none!important}
   .service-card:hover,.page-service-card:hover,.concept-card:hover,.real-case-card:hover,.testimonial-card:hover,.price-row:hover {transform:none}
 }
+
+/* Founder identity marks: intentional studio monograms, not missing-photo placeholders. */
+.founder-monogram {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 112px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  padding: 12px 8px;
+  border: 1px solid rgba(23,42,36,.18);
+  background: #dfe6d9;
+  color: #172a24;
+  text-align: center;
+}
+.founder-monogram::before,
+.founder-monogram::after {
+  content: "";
+  position: absolute;
+  width: 78%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(23,42,36,.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.founder-monogram::before { transform: translate(-12px,-15px); }
+.founder-monogram::after { transform: translate(14px,18px); border-color: rgba(159,72,42,.45); }
+.founder-monogram-doreen { background: #eee1d5; }
+.founder-monogram-kelly { background: #dce5d9; }
+.founder-monogram-letter {
+  position: relative;
+  z-index: 1;
+  font-family: var(--serif);
+  font-size: 72px;
+  line-height: .85;
+  font-weight: 500;
+  letter-spacing: -.07em;
+}
+.founder-monogram-caption,
+.founder-monogram-index {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  font-size: 7px;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.founder-monogram-caption { padding-top: 8px; border-top: 1px solid rgba(23,42,36,.24); }
+.founder-monogram-index { color: #6a705f; font-size: 6px; }
+@media (max-width: 900px) { .founder-monogram { width: 100px; } }
+@media (max-width: 480px) {
+  .founder-monogram { width: 76px; gap: 6px; padding: 8px 5px; }
+  .founder-monogram-letter { font-size: 52px; }
+  .founder-monogram-caption { font-size: 6px; padding-top: 5px; }
+  .founder-monogram-index { font-size: 5px; }
+}
+
+/* Small screens use the existing in-page/footer WhatsApp links instead of a floating overlay. */
+@media (max-width: 680px) {
+  .floating-whatsapp { display: none !important; }
+}
