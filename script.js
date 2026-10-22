@@ -326,14 +326,42 @@ floatingWhatsApp.innerHTML = '<span class="floating-whatsapp-label">Chat on What
 document.body.append(floatingWhatsApp);
 
 const enquiryForm = document.querySelector("#project-form, .contact-form");
-if (enquiryForm && "IntersectionObserver" in window) {
-  const contactVisibility = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      floatingWhatsApp.hidden = entry.isIntersecting;
-    });
-  }, { threshold: 0.08 });
-  contactVisibility.observe(enquiryForm);
+const heroSection = document.querySelector(".hero, .inner-hero");
+const smallScreenQuery = window.matchMedia("(max-width: 680px)");
+let heroIsVisible = Boolean(heroSection);
+let enquiryIsVisible = false;
+
+const syncFloatingWhatsApp = () => {
+  // Mobile visitors have persistent, non-floating WhatsApp links in the page/footer.
+  // On larger screens, keep the floating action away from both the hero artwork and form.
+  floatingWhatsApp.hidden = smallScreenQuery.matches || heroIsVisible || enquiryIsVisible;
+};
+
+if ("IntersectionObserver" in window && heroSection) {
+  const heroVisibility = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => { heroIsVisible = entry.isIntersecting; });
+    syncFloatingWhatsApp();
+  }, { threshold: 0.01 });
+  heroVisibility.observe(heroSection);
+
+  if (enquiryForm) {
+    const contactVisibility = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { enquiryIsVisible = entry.isIntersecting; });
+      syncFloatingWhatsApp();
+    }, { threshold: 0.01 });
+    contactVisibility.observe(enquiryForm);
+  }
+} else {
+  // If visibility cannot be tracked reliably, prefer the always-available in-page links.
+  floatingWhatsApp.hidden = true;
 }
+
+if (typeof smallScreenQuery.addEventListener === "function") {
+  smallScreenQuery.addEventListener("change", syncFloatingWhatsApp);
+} else if (typeof smallScreenQuery.addListener === "function") {
+  smallScreenQuery.addListener(syncFloatingWhatsApp);
+}
+syncFloatingWhatsApp();
 
 
 /* Track enquiry actions without collecting names, email addresses or enquiry text. */
