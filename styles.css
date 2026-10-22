@@ -2092,7 +2092,7 @@ textarea { resize: vertical; }
 }
 
 
-/* Lightweight, original visual previews make each service tangible without stock imagery. */
+/* Show only relevant real work samples; individual service visuals are optional. */
 .page-service-card .service-preview-image{display:block;width:calc(100% + 52px);max-width:none;height:auto;aspect-ratio:1.6;object-fit:cover;margin:20px -26px 22px;border-block:1px solid rgba(32,34,29,.12);background:#e8e9df}
 .page-service-card .page-card-symbol{margin-top:0}
 @media(max-width:900px){.page-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.page-service-card .service-preview-image{width:calc(100% + 52px)}}
@@ -2123,3 +2123,7 @@ textarea { resize: vertical; }
     transform: none !important;
   }
 }
+
+/* Portrait post example, shown only with the social-content service/package. */
+.page-service-card .service-preview-image.social-post-preview{aspect-ratio:4/5;object-fit:cover}
+.package-preview-image.social-post-preview{aspect-ratio:4/5;object-fit:cover}
