@@ -2092,16 +2092,19 @@ textarea { resize: vertical; }
 }
 
 
-/* Show only relevant real work samples; individual service visuals are optional. */
+/* Service-page visuals orient visitors; real case studies remain on the Work page. */
 .page-service-card .service-preview-image{display:block;width:calc(100% + 52px);max-width:none;height:auto;aspect-ratio:1.6;object-fit:cover;margin:20px -26px 22px;border-block:1px solid rgba(32,34,29,.12);background:#e8e9df}
 .page-service-card .page-card-symbol{margin-top:0}
 @media(max-width:900px){.page-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.page-service-card .service-preview-image{width:calc(100% + 52px)}}
 @media(max-width:600px){.page-card-grid{grid-template-columns:minmax(0,1fr);padding-top:34px;gap:14px}.page-service-card{padding:22px}.page-service-card .service-preview-image{width:calc(100% + 44px);margin:18px -22px 20px;aspect-ratio:1.55}.page-service-card .page-card-symbol{width:46px;height:46px;margin-bottom:18px}}
+.service-visual-note{margin:24px auto 70px;color:var(--muted);font-size:10px;line-height:1.7}
+.service-visual-note a{font-weight:700;text-decoration:underline;text-underline-offset:3px}
 
 
 /* Package previews demonstrate direction without implying guaranteed deliverables. */
 .package-preview-image{display:block;width:100%;max-width:430px;height:auto;aspect-ratio:16/9;object-fit:cover;margin:17px 0 6px;border:1px solid rgba(32,34,29,.12);background:#e8e9df}
 @media(max-width:680px){.package-preview-image{max-width:100%;margin-top:14px}}
+.package-image-note{margin:-38px auto 42px;color:var(--muted);font-size:10px;line-height:1.7}
 
 /* Honour reduced-motion preferences across every page, including the animated ticker and smooth scrolling. */
 @media (prefers-reduced-motion: reduce) {
