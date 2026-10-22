@@ -1875,3 +1875,35 @@ textarea { resize: vertical; }
   .inclusion-section { grid-template-columns: minmax(0, 1fr); gap: 22px; padding-top: 46px; padding-bottom: 52px; }
   .inclusion-checks { grid-template-columns: minmax(0, 1fr); }
 }
+
+
+/* Case-study screenshots, package scope details and checklist prompts. */
+.case-study-preview{margin:22px 0 0;padding:0}
+.case-study-preview img{display:block;width:100%;height:auto;border:1px solid rgba(32,34,29,.14);background:#f4f0e8}
+.case-study-preview figcaption{padding:8px 10px;background:rgba(255,253,248,.62);color:var(--muted);font-size:9px;line-height:1.5}
+.package-detail-label{margin:14px 0 4px;color:#78816e;font-size:8px;font-weight:700;letter-spacing:.13em}
+.package-checklist{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:0 auto 64px;padding:clamp(22px,4vw,34px);background:#e5e8d9;border:1px solid rgba(23,42,36,.12)}
+.package-checklist>div{max-width:680px}
+.package-checklist .eyebrow{margin:0 0 9px;color:#75816d}
+.package-checklist h2{margin:0 0 8px;font-family:var(--display);font-size:clamp(24px,3vw,32px);line-height:1.12;letter-spacing:-.05em}
+.package-checklist p:not(.eyebrow){margin:0;color:#56594f;font-size:12px;line-height:1.8}
+.package-checklist .button{flex:0 0 auto}
+.contact-checklist-link{margin:18px 0 0;color:var(--muted);font-size:11px;line-height:1.7}
+.contact-checklist-link a{display:inline-block;margin-top:4px;color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.styledkid-mock-store{overflow:hidden;border:1px solid rgba(32,34,29,.12);background:#fffdf8;color:#20221d;font-family:var(--sans)}
+.styledkid-mock-header{display:flex;align-items:center;gap:10px;padding:12px 13px;border-bottom:1px solid #e5dfd5;font-size:8px}
+.styledkid-mock-header strong{margin-right:auto;font-family:var(--display);font-size:15px;letter-spacing:-.04em;color:#244e45}
+.styledkid-mock-header span{font-size:7px;letter-spacing:.06em;text-transform:uppercase;color:#5c665d}
+.styledkid-mock-bag{padding:5px 7px;border:1px solid #ded8ce}
+.styledkid-mock-hero{padding:22px 18px 20px;background:linear-gradient(110deg,#e8eee3 0%,#e8eee3 57%,#f6e8d9 57%,#f6e8d9 100%)}
+.styledkid-mock-label{margin:0 0 8px;color:#657b66;font-size:6px;font-weight:700;letter-spacing:.14em}
+.styledkid-mock-hero h4{margin:0 0 7px;font-family:var(--display);font-size:clamp(20px,2.6vw,27px);font-weight:600;line-height:1.02;letter-spacing:-.055em;color:#27453c}
+.styledkid-mock-hero>p:not(.styledkid-mock-label){max-width:230px;margin:0;color:#5d665e;font-size:8px;line-height:1.55}
+.styledkid-mock-button{display:inline-block;margin-top:11px;padding:7px 10px;background:#244e45;color:white;font-size:7px;font-weight:700;letter-spacing:.04em}
+.styledkid-mock-categories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:10px}
+.styledkid-mock-categories article{min-width:0;border:1px solid #ece7dd;background:white}
+.styledkid-mock-categories img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border:0}
+.styledkid-mock-categories span,.styledkid-mock-categories strong{display:block;padding:0 6px}
+.styledkid-mock-categories span{margin-top:6px;color:#77816e;font-size:5px;font-weight:700;letter-spacing:.1em}
+.styledkid-mock-categories strong{padding-bottom:7px;margin-top:3px;font-family:var(--display);font-size:8px;line-height:1.2;color:#2f3730}
+@media(max-width:680px){.package-checklist{align-items:stretch;flex-direction:column;margin-bottom:48px}.package-checklist .button{width:100%;justify-content:center}.contact-checklist-link{font-size:12px}.styledkid-mock-header{gap:6px}.styledkid-mock-header strong{font-size:13px}.styledkid-mock-header span{font-size:6px}.styledkid-mock-categories{gap:4px;padding:7px}.styledkid-mock-categories span,.styledkid-mock-categories strong{padding-left:4px;padding-right:4px}}
