@@ -2099,6 +2099,21 @@ textarea { resize: vertical; }
 @media(max-width:600px){.page-card-grid{grid-template-columns:minmax(0,1fr);padding-top:34px;gap:14px}.page-service-card{padding:22px}.page-service-card .service-preview-image{width:calc(100% + 44px);margin:18px -22px 20px;aspect-ratio:1.55}.page-service-card .page-card-symbol{width:46px;height:46px;margin-bottom:18px}}
 .service-visual-note{margin:24px auto 70px;color:var(--muted);font-size:10px;line-height:1.7}
 .service-visual-note a{font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.service-example-link{display:inline-flex;align-items:center;gap:8px;margin-top:11px;color:var(--ink);font-size:10px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.service-example-link span{font-size:14px;text-decoration:none}
+.service-post-example-band{background:#f0ede3;border-block:1px solid var(--line)}
+.service-post-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.72fr);align-items:center;gap:clamp(30px,7vw,88px);padding-block:clamp(52px,8vw,92px)}
+.service-post-feature-copy h2{margin:0 0 18px;font-family:var(--display);font-size:clamp(36px,4.8vw,58px);line-height:1.04;letter-spacing:-.065em}
+.service-post-feature-copy h2 em{color:#647d5b;font-family:var(--serif);font-weight:400;letter-spacing:-.05em}
+.service-post-feature-copy>p:not(.eyebrow){max-width:54ch;color:var(--muted);font-size:13px;line-height:1.8}
+.service-post-feature-copy .service-post-scope{font-size:11px}
+.service-post-feature-copy .button{margin-top:8px}
+.service-post-feature-card{width:min(100%,370px);margin:0 auto;background:var(--white);border:1px solid var(--line);box-shadow:0 12px 32px #20221d10}
+.service-post-feature-card img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:contain;background:#e7e1d5}
+.service-post-feature-card figcaption{display:grid;gap:6px;padding:14px 16px 16px}
+.service-post-feature-card figcaption span{color:var(--orange);font-size:8px;font-weight:800;letter-spacing:.14em}
+.service-post-feature-card figcaption strong{font-family:var(--display);font-size:17px;line-height:1.25;letter-spacing:-.03em}
+@media(max-width:680px){.service-post-feature{grid-template-columns:minmax(0,1fr);gap:28px;padding-block:48px}.service-post-feature-card{max-width:340px}}
 
 
 /* Package previews demonstrate direction without implying guaranteed deliverables. */
