@@ -5,7 +5,7 @@ A mobile-first static website concept for a digital studio serving small busines
 ## Website files
 - `index.html` — landing page, service cards, starter packages and enquiry form
 - `services.html` — detailed service overview
-- `work.html` — clearly labelled illustrative creative concepts
+- `work.html` — two public website case studies and a historical project note
 - `about.html` — studio approach and values
 - `packages.html` — indicative starter packages and pricing
 - `contact.html` — dedicated project enquiry form with fallback contact options
