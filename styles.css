@@ -2069,7 +2069,7 @@ textarea { resize: vertical; }
 .project-notes { padding: 64px 0 8px; }
 .project-notes-heading { max-width: 760px; margin: 0 0 28px; }
 .project-notes-heading > p:last-child { max-width: 760px; margin-top: 18px; color: var(--muted); font-size: 12px; line-height: 1.75; }
-.project-notes-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.project-notes-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .project-note-card { display: flex; min-width: 0; min-height: 250px; flex-direction: column; margin: 0; padding: clamp(22px, 2.8vw, 30px); border: 1px solid rgba(32,34,29,.11); background: #f8f5ed; }
 .project-note-card-historical { background: #f3e9dd; }
 .project-note-label { margin: 0 0 17px; color: #8b4b33; font-size: 8px; font-weight: 700; letter-spacing: .14em; line-height: 1.6; }
@@ -2082,7 +2082,6 @@ textarea { resize: vertical; }
 .service-picker-fallback a { color: var(--ink); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 900px) {
   .project-notes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .project-note-card:nth-child(3) { grid-column: 1 / -1; }
 }
 @media (max-width: 680px) {
   .project-notes { padding-top: 48px; }
@@ -2146,11 +2145,18 @@ textarea { resize: vertical; }
 .page-service-card .service-preview-image.social-post-preview{aspect-ratio:4/5;object-fit:cover}
 .package-preview-image.social-post-preview{aspect-ratio:4/5;object-fit:cover}
 
-/* Keep the two authentic website cases balanced after removing concept art. */
+/* Keep website case studies balanced; Knews uses a wide split layout. */
 .real-case-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
 .real-case-card-school{grid-column:auto;background:#eef1e7}
 .real-case-school-layout{grid-template-areas:"image" "copy";grid-template-columns:minmax(0,1fr);gap:22px}
 @media(max-width:680px){.real-case-grid{grid-template-columns:minmax(0,1fr)}.real-case-card-school{grid-column:auto}}
+.real-case-card-knews{grid-column:1/-1;background:linear-gradient(110deg,#e5e8d9 0 54%,#e9e3d6 54% 100%)}
+.real-case-knews-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(22px,4vw,46px);align-items:start;padding-top:22px}
+.real-case-card-knews .case-study-preview{min-width:0;margin:0}
+.real-case-knews-copy{display:flex;flex-direction:column;min-width:0}
+.real-case-knews-copy .real-case-kicker{margin:0 0 8px}
+.real-case-knews-copy .real-case-summary{max-width:none}
+@media(max-width:680px){.real-case-card-knews{grid-column:auto}.real-case-knews-layout{grid-template-columns:minmax(0,1fr);gap:22px}}
 
 /* The 404 headline needs a little more room at narrow phone widths. */
 @media(max-width:520px){
