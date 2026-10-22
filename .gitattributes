@@ -1,0 +1,2 @@
+# PDF cross-reference tables use fixed-width fields that can look like trailing whitespace.
+*.pdf binary
