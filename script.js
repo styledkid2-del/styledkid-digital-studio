@@ -130,6 +130,7 @@ if (form && preview && status) {
       "Business / idea: " + (data.get("business") || ""),
       "What I need: " + (data.get("need") || ""),
       "Budget: " + (data.get("budget") || "Not sure yet"),
+      "Audiences, languages, access needs, cultural details or contact preferences: " + (data.get("audience_considerations") || "Not provided"),
       "Details: " + (data.get("details") || "Not provided"),
       "",
       "Please let me know the next steps."
