@@ -15,6 +15,7 @@ A mobile-first static website concept for a digital studio serving small busines
 - `styles.css` — responsive visual design and mobile navigation styles
 - `script.js` — accessible mobile menu, FormSubmit enquiry submission, email-app and WhatsApp handoff, copy fallback, optional native device sharing, and local text-file download
 - `favicon.svg` — simple brand icon
+- `assets/service-visuals/` — illustrative, AI-generated images used in the homepage service cards; these are not client case-study evidence
 - `.github/workflows/quality.yml` — automated static-site and JavaScript checks
 
 ## Hosting
