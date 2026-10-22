@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/packages",
+      "destination": "/packages.html",
+      "permanent": true
+    }
+  ]
+}
