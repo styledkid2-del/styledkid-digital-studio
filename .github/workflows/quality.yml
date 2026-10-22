@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -24,3 +26,5 @@ jobs:
         run: node --check script.js
       - name: Validate pages, local assets, JSON-LD and enquiry wiring
         run: node scripts/check-site.mjs
+      - name: Check patch whitespace and conflict markers
+        run: git diff --check origin/main...HEAD
