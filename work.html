@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=home-refresh-20261022-2">
   <script src="script.js" defer></script>
   <title>Creative examples — Kioo Studio</title>
 </head>
@@ -34,12 +34,12 @@
 <section class="inner-hero section-wrap"><p class="eyebrow">REAL PROJECTS, SHARED WITH PERMISSION</p><h1>Thoughtful websites<br><em>for real businesses.</em></h1><p class="inner-lead">Explore three website projects. Each case study describes the site’s purpose and visitor journey without making unverified performance or business-outcome claims.</p><span class="page-index">02 / OUR WORK</span></section>
 <section class="real-case-studies section-wrap" aria-labelledby="case-studies-title">
   <div class="real-work-heading">
-    <p class="eyebrow">SELECTED WEBSITE PROJECTS</p>
+    <p class="eyebrow">SELECTED PROJECTS &amp; CONCEPTS</p>
     <h2 id="case-studies-title">Different businesses.<br><em>Built around their purpose.</em></h2>
     <p>WildLens Adventure and Menwe Primary &amp; Junior School are shown with screenshots of their public homepages captured 22 October 2026. StyledKid’s current domain no longer shows its former storefront, so its panel below is a clearly labeled illustrative concept—not a live screenshot. No unverified performance or sales claims are made.</p>
   </div>
   <div class="real-case-grid">
-    <article class="real-case-card">
+    <article class="real-case-card" id="wildlens-adventure">
       <div class="real-case-top"><span class="real-case-index">01 / WEBSITE</span><span class="real-case-symbol" aria-hidden="true">↗</span></div>
       <figure class="case-study-preview"><img src="assets/case-studies/wildlens-adventure-homepage.webp" alt="WildLens Adventure homepage showing its Kenya safari planning hero and tailored safari call to action." loading="lazy" decoding="async"><figcaption>Live homepage screenshot captured 22 October 2026.</figcaption></figure>
       <p class="real-case-kicker">TRAVEL · SAFARI PLANNING</p>
@@ -51,8 +51,8 @@
       <div class="real-case-detail"><span>VISIBLE SITE EXPERIENCE</span><ul><li>Safari and destination discovery</li><li>Tour and travel-style browsing</li><li>Enquiry paths for tailored trip planning</li></ul></div>
       <a class="real-case-link" href="https://wildlensadventure.com/" target="_blank" rel="noopener noreferrer">Visit WildLens Adventure <span aria-hidden="true">↗</span></a>
     </article>
-    <article class="real-case-card real-case-card-featured">
-      <div class="real-case-top"><span class="real-case-index">02 / E-COMMERCE</span><span class="real-case-symbol" aria-hidden="true">✳</span></div>
+    <article class="real-case-card real-case-card-featured" id="styledkid-case-study">
+      <div class="real-case-top"><span class="real-case-index">02 / RETAIL · ILLUSTRATIVE CONCEPT</span><span class="real-case-symbol" aria-hidden="true">✳</span></div>
       <figure class="case-study-preview styledkid-concept-preview" id="styledkid-concept" aria-labelledby="styledkid-concept-caption">
         <div class="styledkid-mock-store">
           <header class="styledkid-mock-header"><strong>StyledKid</strong><span>Kids · Baby · Family</span><span class="styledkid-mock-bag">Bag&nbsp; 0</span></header>
@@ -65,16 +65,16 @@
         </div>
         <figcaption id="styledkid-concept-caption">Illustrative storefront concept created for this portfolio from the project’s family-retail brief. This is not a screenshot of the original site or a claim about its current products.</figcaption>
       </figure>
-      <p class="real-case-kicker">RETAIL · FAMILY ESSENTIALS</p>
+      <p class="real-case-kicker">FORMER ONLINE STORE · FAMILY RETAIL</p>
       <h3>StyledKid</h3>
-      <p class="real-case-summary">An online store project for families shopping for children’s clothing, toys, books, baby-care products, school essentials and maternity items in Kenya.</p>
-      <div class="real-case-detail"><span>PROJECT GOAL</span><p>Give families a clear way to discover and shop children’s and baby essentials.</p></div>
+      <p class="real-case-summary">A former online-store project for a family-retail brand. Its current domain no longer shows the storefront; the panel above is an illustrative portfolio concept, not a live site or current product catalogue.</p>
+      <div class="real-case-detail"><span>ORIGINAL PROJECT GOAL</span><p>Give families a clear way to discover children’s and baby essentials online.</p></div>
       <div class="real-case-detail"><span>PROJECT FOCUS</span><p>Website design and development</p></div>
-      <div class="real-case-detail"><span>VISITOR JOURNEY</span><p>Browse family essentials by category, review product listings and continue into the store’s shopping journey.</p></div>
+      <div class="real-case-detail"><span>FORMER VISITOR JOURNEY</span><p>Browse family essentials by category, review product listings and continue into the former store’s shopping journey.</p></div>
       <div class="real-case-detail"><span>FORMER STOREFRONT SCOPE</span><ul><li>Product discovery by category and age</li><li>Product listings with pricing</li><li>Online shopping and checkout journey</li></ul></div>
       <a class="real-case-link" href="#styledkid-concept">View the illustrative concept <span aria-hidden="true">↗</span></a>
     </article>
-    <article class="real-case-card real-case-card-school">
+    <article class="real-case-card real-case-card-school" id="menwe-primary-junior">
       <div class="real-case-top"><span class="real-case-index">03 / EDUCATION</span><span class="real-case-symbol" aria-hidden="true">↗</span></div>
       <div class="real-case-school-layout">
         <figure class="case-study-preview"><img src="assets/case-studies/menwe-primary-junior-homepage.webp" alt="Menwe Primary and Junior School homepage showing its learner-focused welcome, learning pathways and admissions links." loading="lazy" decoding="async"><figcaption>Live homepage screenshot captured 22 October 2026.</figcaption></figure>
@@ -91,27 +91,35 @@
       </div>
     </article>
   </div>
-  <section class="client-testimonials" aria-labelledby="client-testimonials-title">
-    <div class="testimonials-heading">
-      <p class="eyebrow">CLIENT WORDS</p>
-      <h2 id="client-testimonials-title">A little about<br><em>the experience.</em></h2>
-      <p>Feedback shared by the businesses behind these projects.</p>
+  <section class="project-notes" aria-labelledby="project-notes-title">
+    <div class="project-notes-heading">
+      <p class="eyebrow">CASE-STUDY NOTES</p>
+      <h2 id="project-notes-title">Purpose before<br><em>promises.</em></h2>
+      <p>These studio-authored notes describe project scope and visible visitor journeys; they are not client quotations or claims of measured outcomes. The StyledKid note is historical and refers to the former storefront. Its illustration above is a concept, not a live site or current catalogue.</p>
     </div>
-    <div class="testimonial-grid">
-      <figure class="testimonial-card">
-        <span class="testimonial-mark" aria-hidden="true">“</span>
-        <blockquote>Working with Kioo Studio on our website was an opportunity to give WildLens Adventure a professional online presence. The website provides a place for visitors to explore our safari experiences and learn more about what we offer. We appreciate the effort put into presenting our business online.</blockquote>
-        <figcaption><span class="testimonial-rule" aria-hidden="true"></span><span><strong>WildLens Adventure</strong><small>Website design and development</small></span></figcaption>
-      </figure>
-      <figure class="testimonial-card testimonial-card-featured">
-        <span class="testimonial-mark" aria-hidden="true">“</span>
-        <blockquote>Kioo Studio helped bring the StyledKid online store to life. The website gives our business a digital platform to present our products and connect with families looking for children's essentials. We value the work involved in building an online presence for the brand.</blockquote>
-        <figcaption><span class="testimonial-rule" aria-hidden="true"></span><span><strong>StyledKid</strong><small>Website design and development</small></span></figcaption>
-      </figure>
+    <div class="project-notes-grid">
+      <article class="project-note-card">
+        <p class="project-note-label">01 / TRAVEL</p>
+        <h3>WildLens Adventure</h3>
+        <p class="project-note-copy">Help visitors explore safari styles and destinations, then begin a tailored Kenya trip-planning conversation.</p>
+        <div class="project-note-footer"><strong>Site purpose</strong><small>Based on the public homepage captured 22 October 2026.</small></div>
+      </article>
+      <article class="project-note-card project-note-card-historical">
+        <p class="project-note-label">02 / FAMILY RETAIL · FORMER STOREFRONT</p>
+        <h3>StyledKid</h3>
+        <p class="project-note-copy">Present family-retail categories through a clear online-store journey. The current domain no longer shows the former store.</p>
+        <div class="project-note-footer"><strong>Historical project scope</strong><small>The visual above is illustrative—not a live screenshot or current product list.</small></div>
+      </article>
+      <article class="project-note-card">
+        <p class="project-note-label">03 / EDUCATION</p>
+        <h3>Menwe Primary &amp; Junior School</h3>
+        <p class="project-note-copy">Help families understand Menwe’s learning pathways and school life, then find a clear next step for admissions or a visit.</p>
+        <div class="project-note-footer"><strong>Site purpose</strong><small>Based on the public homepage captured 22 October 2026.</small></div>
+      </article>
     </div>
   </section>
 </section>
-<section class="concept-grid section-wrap page-concept-grid">
+<section class="concept-grid section-wrap page-concept-grid" id="creative-concepts" aria-label="Illustrative creative concepts">
 <article class="concept-card concept-bloom"><div class="concept-art"><div class="bloom-orbit"></div><div class="bloom-stem"></div><div class="bloom-flower">✿</div><div class="concept-mini"><span>BEAUTY · CARE · YOU</span><strong>Make time<br>for <em>you.</em></strong><i>DISCOVER YOUR RITUAL ↗</i></div><span class="concept-number">01 / BEAUTY</span></div><div class="concept-caption"><div><h2>A beauty business</h2><p>Warm, calming and personal.</p></div><span>Brand + social</span></div></article>
 <article class="concept-card concept-table"><div class="concept-art"><div class="table-sun"></div><div class="table-plate"></div><div class="table-leaf leaf-one"></div><div class="table-leaf leaf-two"></div><div class="concept-mini"><span>FRESH FROM OUR KITCHEN</span><strong>Made with<br><em>heart.</em></strong><i>SEE TODAY'S MENU ↗</i></div><span class="concept-number">02 / FOOD</span></div><div class="concept-caption"><div><h2>A food business</h2><p>Appetising, friendly and clear.</p></div><span>Content + offers</span></div></article>
 <article class="concept-card concept-market"><div class="concept-art"><div class="market-frame"><div class="market-sun"></div><div class="market-bag">S</div><div class="market-tag">MADE FOR<br>EVERYDAY</div></div><div class="concept-mini"><span>THOUGHTFULLY CHOSEN</span><strong>Find your<br><em>favourite.</em></strong><i>SHOP THE EDIT ↗</i></div><span class="concept-number">03 / RETAIL</span></div><div class="concept-caption"><div><h2>A product shop</h2><p>Distinctive, organised and easy to browse.</p></div><span>Listings + launch</span></div></article>

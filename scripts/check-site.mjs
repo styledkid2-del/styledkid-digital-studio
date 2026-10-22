@@ -2,7 +2,7 @@ import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const htmlFiles = ["index.html", "services.html", "work.html", "about.html", "packages.html", "contact.html", "privacy.html", "404.html"];
+const htmlFiles = ["index.html", "services.html", "work.html", "about.html", "packages.html", "resources.html", "contact.html", "privacy.html", "404.html"];
 const errors = [];
 const pass = (message) => console.log("PASS  " + message);
 const fail = (message) => errors.push(message);
@@ -102,7 +102,7 @@ if (existsSync(sitemapPath)) {
 if (existsSync(robotsPath) && readFileSync(robotsPath, "utf8").includes("sitemap.xml")) pass("robots.txt points crawlers to sitemap.xml");
 else fail("robots.txt is missing or does not reference sitemap.xml");
 
-if (!index.includes('href="styles.css"') || !css.length) fail("Stylesheet link or styles.css is missing");
+if (!/href=["'](?:\.\/)?styles\.css(?:\?[^"']*)?["']/i.test(index) || !css.length) fail("Stylesheet link or styles.css is missing");
 else pass("Stylesheet is present");
 if (!/href=["'](?:\.\/)?favicon\.svg(?:\?[^"']*)?["']/i.test(index) || !existsSync(resolve(root, "favicon.svg"))) fail("Favicon reference or favicon.svg is missing");
 else pass("Favicon is present");
