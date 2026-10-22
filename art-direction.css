@@ -359,3 +359,26 @@
   .concept-grid>.concept-card:first-child .concept-mini strong { font-size:clamp(34px,9vw,44px); }
   .concept-grid>.concept-card:first-child .bloom-flower { font-size:260px; right:-25px; bottom:-4%; }
 }
+
+
+/* Mobile conversion helper: keep the WhatsApp affordance tappable without covering content. */
+.floating-whatsapp-icon { display: none; }
+@media (max-width: 430px) {
+  .floating-whatsapp {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    min-height: 48px;
+    padding: 0;
+    gap: 0;
+    border-radius: 50%;
+  }
+  .floating-whatsapp-label,
+  .floating-whatsapp-arrow { display: none; }
+  .floating-whatsapp-icon {
+    display: block;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 auto;
+  }
+}
