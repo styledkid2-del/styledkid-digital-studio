@@ -483,6 +483,7 @@
  .social-samples-note{grid-template-columns:auto minmax(0,1fr)}
  .social-samples-note>a{grid-column:2;white-space:normal}
 }
+@media(max-width:680px){.social-samples-section{padding-bottom:104px}}
 @media(max-width:520px){
  .social-samples-grid{grid-template-columns:minmax(0,1fr);gap:22px}
  .social-sample-card:last-child{grid-column:auto;max-width:none}
