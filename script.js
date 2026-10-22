@@ -130,6 +130,8 @@ if (form && preview && status) {
       "Business / idea: " + (data.get("business") || ""),
       "What I need: " + (data.get("need") || ""),
       "Budget: " + (data.get("budget") || "Not sure yet"),
+      "Preferred reply method: " + (data.get("reply_preference") || "No preference"),
+      "WhatsApp number for reply (if provided): " + (data.get("whatsapp_number") || "Not provided"),
       "Audiences, languages, access needs, cultural details or contact preferences: " + (data.get("audience_considerations") || "Not provided"),
       "Details: " + (data.get("details") || "Not provided"),
       "",
@@ -177,7 +179,7 @@ if (form && preview && status) {
       }
       status.classList.remove("is-pending", "is-error");
       status.classList.add("is-success");
-      status.textContent = "FormSubmit confirmed receipt. Your enquiry reference is " + reference + ". Keep it for your records. This does not confirm the notification email reached the studio. We aim to reply by email within 2 business days; if you have not heard back, contact us on WhatsApp.";
+      status.textContent = "FormSubmit confirmed receipt. Your enquiry reference is " + reference + ". Keep it for your records. This does not confirm the notification email reached the studio. We aim to reply within 2 business days using your preferred contact method. If you have not heard back, contact us by email or WhatsApp.";
       form.reset();
       const timestampField = form.querySelector('input[name="_ts"]');
       if (timestampField) timestampField.value = String(Date.now());
