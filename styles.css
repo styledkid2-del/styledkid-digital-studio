@@ -2191,3 +2191,27 @@ textarea { resize: vertical; }
 .social-gallery-action{margin:24px 0 0}
 @media(max-width:900px){.social-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.social-concept-card:last-child{grid-column:1/-1}.social-concept-card:last-child .social-concept-art{min-height:300px}}
 @media(max-width:620px){.social-gallery-section{padding-top:48px;padding-bottom:54px}.social-gallery-grid{grid-template-columns:minmax(0,1fr);gap:14px}.social-concept-card:last-child{grid-column:auto}.social-concept-art{min-height:320px;padding:28px}.social-art-main{font-size:clamp(40px,12vw,54px)}}
+
+
+/* Compact floating WhatsApp CTA: keep it useful without dominating the page. */
+.floating-whatsapp {
+  min-height: 40px;
+  padding: 9px 13px;
+  gap: 7px;
+  font-size: 11px;
+  line-height: 1.2;
+  box-shadow: 0 4px 16px rgba(23, 60, 49, .18);
+}
+.floating-whatsapp span[aria-hidden="true"] {
+  font-size: 13px;
+}
+.floating-whatsapp:hover {
+  box-shadow: 0 7px 20px rgba(23, 60, 49, .22);
+}
+@media (max-width: 680px) {
+  .floating-whatsapp {
+    min-height: 40px;
+    padding: 9px 12px;
+    font-size: 11px;
+  }
+}
