@@ -48,11 +48,11 @@ for (const file of htmlFiles) {
     const targetFile = targetPath.startsWith("/") ? routeFiles[targetPath] : (targetPath || file);
     const localPath = targetFile || targetPath;
     if (targetPath && !existsSync(resolve(root, localPath))) {
-      fail(file + ": missing local asset/link target \"" + value + "\");
+      fail(file + ": missing local asset/link target " + value);
       continue;
     }
     if (fragment && targetFile && pages.has(targetFile) && !pages.get(targetFile).ids.has(decodeURIComponent(fragment))) {
-      fail(file + ": link \"" + value + "\" points to missing ID #" + fragment + " in " + targetFile);
+      fail(file + ": link " + value + " points to missing ID #" + fragment + " in " + targetFile);
     }
   }
 
@@ -82,7 +82,7 @@ for (const [file, page] of pages) {
     const targetFile = targetPath.startsWith("/") ? routeFiles[targetPath] : (targetPath || file);
     if (!pages.has(targetFile)) continue;
     if (!pages.get(targetFile).ids.has(decodeURIComponent(fragment))) {
-      fail(file + ": link \"" + value + "\" points to missing ID #" + fragment + " in " + targetFile);
+      fail(file + ": link " + value + " points to missing ID #" + fragment + " in " + targetFile);
     }
   }
 }
