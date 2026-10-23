@@ -1,12 +1,88 @@
-/* Privacy-notice-covered Vercel Web Analytics. Enable Web Analytics in the Vercel dashboard to collect events. */
-window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-const analyticsScript = document.createElement("script");
-analyticsScript.defer = true;
-analyticsScript.src = "/_vercel/insights/script.js";
-analyticsScript.onerror = () => {};
-document.head.append(analyticsScript);
+/* Optional analytics load only after a visitor explicitly accepts it. */
+const COOKIE_CONSENT_KEY = "kioo-cookie-consent";
+let cookieConsent = "unset";
+
+try {
+  cookieConsent = window.localStorage.getItem(COOKIE_CONSENT_KEY) || "unset";
+} catch {
+  // If storage is unavailable, keep consent in memory for this page only.
+}
+
+function loadOptionalAnalytics() {
+  if (cookieConsent !== "accepted" || document.querySelector('script[data-kioo-analytics="true"]')) return;
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  const analyticsScript = document.createElement("script");
+  analyticsScript.defer = true;
+  analyticsScript.dataset.kiooAnalytics = "true";
+  analyticsScript.src = "/_vercel/insights/script.js";
+  analyticsScript.onerror = () => {};
+  document.head.append(analyticsScript);
+}
+
+function saveCookieConsent(choice) {
+  cookieConsent = choice;
+  try {
+    window.localStorage.setItem(COOKIE_CONSENT_KEY, choice);
+  } catch {
+    // Consent still applies for this page view if storage is unavailable.
+  }
+  if (choice === "accepted") loadOptionalAnalytics();
+}
+
+function initialiseCookieConsent() {
+  if (document.querySelector(".cookie-consent")) return;
+  const panel = document.createElement("section");
+  panel.className = "cookie-consent";
+  panel.setAttribute("aria-label", "Cookie and analytics choices");
+  panel.setAttribute("aria-describedby", "cookie-consent-copy");
+  panel.innerHTML = `
+    <div class="cookie-consent-copy">
+      <p class="cookie-consent-eyebrow">YOUR PRIVACY, YOUR CHOICE</p>
+      <h2>Cookies &amp; optional analytics</h2>
+      <p id="cookie-consent-copy">We use privacy-focused, optional analytics to understand which parts of our website are useful. Choose whether to allow analytics. You can change your choice anytime in Cookie settings. <a href="/cookie-policy">Read our cookie notice</a>.</p>
+    </div>
+    <div class="cookie-consent-actions">
+      <button type="button" class="cookie-consent-reject">Reject optional</button>
+      <button type="button" class="cookie-consent-accept">Accept analytics</button>
+    </div>`;
+  const settings = document.createElement("button");
+  settings.type = "button";
+  settings.className = "cookie-settings-trigger";
+  settings.textContent = "Cookie settings";
+  settings.setAttribute("aria-label", "Reopen cookie and analytics choices");
+  settings.addEventListener("click", () => {
+    panel.hidden = false;
+    panel.querySelector(".cookie-consent-accept").focus();
+  });
+  panel.querySelector(".cookie-consent-accept").addEventListener("click", () => {
+    saveCookieConsent("accepted");
+    panel.hidden = true;
+    settings.hidden = false;
+  });
+  panel.querySelector(".cookie-consent-reject").addEventListener("click", () => {
+    saveCookieConsent("rejected");
+    panel.hidden = true;
+    settings.hidden = false;
+  });
+  document.body.append(panel, settings);
+  if (cookieConsent === "unset") {
+    panel.hidden = false;
+    settings.hidden = true;
+  } else {
+    panel.hidden = true;
+    settings.hidden = false;
+    if (cookieConsent === "accepted") loadOptionalAnalytics();
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initialiseCookieConsent, { once: true });
+} else {
+  initialiseCookieConsent();
+}
 
 function trackStudioEvent(name, data = {}) {
+  if (cookieConsent !== "accepted") return;
   try {
     if (typeof window.va === "function") window.va("event", { name, data });
   } catch {
