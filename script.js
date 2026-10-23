@@ -64,7 +64,16 @@ function initialiseCookieConsent() {
     panel.hidden = true;
     settings.hidden = false;
   });
-  document.body.append(panel, settings);
+  document.body.append(panel);
+  const footerSettingsHost =
+    document.querySelector(".site-footer .footer-links-group:last-child") ||
+    document.querySelector(".site-footer .footer-bottom") ||
+    document.querySelector(".site-footer");
+  if (footerSettingsHost) {
+    footerSettingsHost.append(settings);
+  } else {
+    settings.hidden = true;
+  }
   if (cookieConsent === "unset") {
     panel.hidden = false;
     settings.hidden = true;
