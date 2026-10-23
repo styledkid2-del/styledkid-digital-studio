@@ -2513,8 +2513,8 @@ input, select, textarea {
 /* Staged quality pass: mobile resilience, portfolio readability, and stable media. */
 img, video, iframe { max-width: 100%; }
 main, section, article, figure, form, fieldset { min-width: 0; }
-:where(h1,h2,h3,p,li,a,button,label,figcaption) {
-  overflow-wrap: anywhere;
+:where(p, li, figcaption, .real-case-detail, .real-case-summary, .project-note-copy) {
+  overflow-wrap: break-word;
 }
 button, .button, .nav-cta, .mobile-header-cta, .real-case-link {
   touch-action: manipulation;
