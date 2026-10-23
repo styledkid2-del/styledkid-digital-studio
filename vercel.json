@@ -1,9 +1,101 @@
 {
   "redirects": [
     {
-      "source": "/packages",
-      "destination": "/packages.html",
+      "source": "/index.html",
+      "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/services.html",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/work.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/packages.html",
+      "destination": "/packages",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/resources.html",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/website-care.html",
+      "destination": "/website-care",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/cookie-policy.html",
+      "destination": "/cookie-policy",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/services",
+      "destination": "/services.html"
+    },
+    {
+      "source": "/work",
+      "destination": "/work.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/packages",
+      "destination": "/packages.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/resources",
+      "destination": "/resources.html"
+    },
+    {
+      "source": "/website-care",
+      "destination": "/website-care.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/cookie-policy",
+      "destination": "/cookie-policy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
     }
   ]
 }
