@@ -19,10 +19,21 @@ const nav = document.querySelector("#main-nav");
 
 if (nav) {
   // Mark the current page for assistive technology and make navigation easier to scan.
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
   nav.querySelectorAll("a[href]").forEach((link) => {
     const href = link.getAttribute("href") || "";
-    if (!href.startsWith("#") && href.split("?")[0].split("#")[0] === currentPage) {
+    if (href.startsWith("#")) {
+      link.removeAttribute("aria-current");
+      return;
+    }
+    let linkPath = "";
+    try {
+      linkPath = new URL(href, window.location.origin).pathname.replace(/\/+$/, "") || "/";
+    } catch {
+      link.removeAttribute("aria-current");
+      return;
+    }
+    if (linkPath === currentPath) {
       link.setAttribute("aria-current", "page");
     } else {
       link.removeAttribute("aria-current");
@@ -108,7 +119,7 @@ if (pickerForm) {
     }
     title.textContent = choice.package;
     copy.textContent = choice.desc + " " + note;
-    link.href = "contact.html?service=" + encodeURIComponent(choice.service) + "&budget=" + encodeURIComponent(budget === "under" ? "Under KSh 2,000" : budget === "mid" ? "KSh 2,000–5,000" : budget === "high" ? "KSh 5,000–10,000" : "Not sure yet") + "#project-form";
+    link.href = "/contact?service=" + encodeURIComponent(choice.service) + "&budget=" + encodeURIComponent(budget === "under" ? "Under KSh 2,000" : budget === "mid" ? "KSh 2,000–5,000" : budget === "high" ? "KSh 5,000–10,000" : "Not sure yet") + "#project-form";
     result.hidden = false;
     trackStudioEvent("Service Picker Completed", { goal, budget, recommendation: choice.service });
     result.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
@@ -400,7 +411,7 @@ document.addEventListener("click", (event) => {
     trackStudioEvent("WhatsApp Click", { placement: link.classList.contains("floating-whatsapp") ? "floating" : "page", label });
   } else if (href.startsWith("mailto:")) {
     trackStudioEvent("Email Click", { placement: "page" });
-  } else if (href.includes("contact.html") || href === "#contact" || href === "#project-form") {
+  } else if (href.startsWith("/contact") || href.includes("contact.html") || href === "#contact" || href === "#project-form") {
     trackStudioEvent("Enquiry CTA Click", { label, destination: href.startsWith("#") ? "homepage_form" : "contact_page" });
   }
 });
