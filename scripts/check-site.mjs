@@ -30,9 +30,9 @@ for (const file of htmlFiles) {
   if (!/<h1\b/i.test(html)) fail(file + ": missing main heading (h1)");
   else pass(file + ": main heading is present");
 
-  for (const match of html.matchAll(/\\b(?:href|src)=["']([^"']+)["']/g)) {
+  for (const match of html.matchAll(/\b(?:href|src)=["']([^"']+)["']/g)) {
     const value = match[1].trim();
-    if (!value || /^(?:https?:|mailto:|tel:|data:|javascript:|\\/\\/)/i.test(value)) continue;
+    if (!value || /^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(value)) continue;
     const [pathAndQuery, fragment] = value.split("#", 2);
     const targetPath = (pathAndQuery || "").split("?")[0];
     const routeFiles = {
@@ -48,11 +48,11 @@ for (const file of htmlFiles) {
     const targetFile = targetPath.startsWith("/") ? routeFiles[targetPath] : (targetPath || file);
     const localPath = targetFile || targetPath;
     if (targetPath && !existsSync(resolve(root, localPath))) {
-      fail(file + ": missing local asset/link target \\"" + value + "\\");
+      fail(file + ": missing local asset/link target \"" + value + "\");
       continue;
     }
     if (fragment && targetFile && pages.has(targetFile) && !pages.get(targetFile).ids.has(decodeURIComponent(fragment))) {
-      fail(file + ": link \\"" + value + "\\" points to missing ID #" + fragment + " in " + targetFile);
+      fail(file + ": link \"" + value + "\" points to missing ID #" + fragment + " in " + targetFile);
     }
   }
 
@@ -68,9 +68,9 @@ for (const file of htmlFiles) {
 
 // Validate all local anchor links once every page's IDs have been collected.
 for (const [file, page] of pages) {
-  for (const match of page.html.matchAll(/\\bhref=["']([^"']*#[^"']+)["']/g)) {
+  for (const match of page.html.matchAll(/\bhref=["']([^"']*#[^"']+)["']/g)) {
     const value = match[1].trim();
-    if (/^(?:https?:|\\/\\/)/i.test(value)) continue;
+    if (/^(?:https?:|\/\/)/i.test(value)) continue;
     const [pathAndQuery, fragment] = value.split("#", 2);
     const targetPath = (pathAndQuery || "").split("?")[0];
     const routeFiles = {
@@ -82,7 +82,7 @@ for (const [file, page] of pages) {
     const targetFile = targetPath.startsWith("/") ? routeFiles[targetPath] : (targetPath || file);
     if (!pages.has(targetFile)) continue;
     if (!pages.get(targetFile).ids.has(decodeURIComponent(fragment))) {
-      fail(file + ": link \\"" + value + "\\" points to missing ID #" + fragment + " in " + targetFile);
+      fail(file + ": link \"" + value + "\" points to missing ID #" + fragment + " in " + targetFile);
     }
   }
 }
