@@ -30,18 +30,29 @@ for (const file of htmlFiles) {
   if (!/<h1\b/i.test(html)) fail(file + ": missing main heading (h1)");
   else pass(file + ": main heading is present");
 
-  for (const match of html.matchAll(/\b(?:href|src)=["']([^"']+)["']/g)) {
+  for (const match of html.matchAll(/\\b(?:href|src)=["']([^"']+)["']/g)) {
     const value = match[1].trim();
-    if (!value || /^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(value)) continue;
+    if (!value || /^(?:https?:|mailto:|tel:|data:|javascript:|\\/\\/)/i.test(value)) continue;
     const [pathAndQuery, fragment] = value.split("#", 2);
     const targetPath = (pathAndQuery || "").split("?")[0];
-    const targetFile = targetPath || file;
-    if (targetPath && !existsSync(resolve(root, targetPath))) {
-      fail(file + ": missing local asset/link target \"" + value + "\"");
+    const routeFiles = {
+      "/": "index.html", "/services": "services.html", "/work": "work.html",
+      "/about": "about.html", "/packages": "packages.html", "/contact": "contact.html",
+      "/resources": "resources.html", "/website-care": "website-care.html",
+      "/privacy": "privacy.html", "/cookie-policy": "cookie-policy.html", "/terms": "terms.html",
+      "/index.html": "index.html", "/services.html": "services.html", "/work.html": "work.html",
+      "/about.html": "about.html", "/packages.html": "packages.html", "/contact.html": "contact.html",
+      "/resources.html": "resources.html", "/website-care.html": "website-care.html",
+      "/privacy.html": "privacy.html", "/cookie-policy.html": "cookie-policy.html", "/terms.html": "terms.html"
+    };
+    const targetFile = targetPath.startsWith("/") ? routeFiles[targetPath] : (targetPath || file);
+    const localPath = targetFile || targetPath;
+    if (targetPath && !existsSync(resolve(root, localPath))) {
+      fail(file + ": missing local asset/link target \\"" + value + "\\");
       continue;
     }
-    if (fragment && pages.has(targetFile) && !pages.get(targetFile).ids.has(decodeURIComponent(fragment))) {
-      fail(file + ": link \"" + value + "\" points to missing ID #" + fragment + " in " + targetFile);
+    if (fragment && targetFile && pages.has(targetFile) && !pages.get(targetFile).ids.has(decodeURIComponent(fragment))) {
+      fail(file + ": link \\"" + value + "\\" points to missing ID #" + fragment + " in " + targetFile);
     }
   }
 
@@ -57,15 +68,21 @@ for (const file of htmlFiles) {
 
 // Validate all local anchor links once every page's IDs have been collected.
 for (const [file, page] of pages) {
-  for (const match of page.html.matchAll(/\bhref=["']([^"']*#[^"']+)["']/g)) {
+  for (const match of page.html.matchAll(/\\bhref=["']([^"']*#[^"']+)["']/g)) {
     const value = match[1].trim();
-    if (/^(?:https?:|\/\/)/i.test(value)) continue;
+    if (/^(?:https?:|\\/\\/)/i.test(value)) continue;
     const [pathAndQuery, fragment] = value.split("#", 2);
     const targetPath = (pathAndQuery || "").split("?")[0];
-    const targetFile = targetPath || file;
+    const routeFiles = {
+      "/": "index.html", "/services": "services.html", "/work": "work.html",
+      "/about": "about.html", "/packages": "packages.html", "/contact": "contact.html",
+      "/resources": "resources.html", "/website-care": "website-care.html",
+      "/privacy": "privacy.html", "/cookie-policy": "cookie-policy.html", "/terms": "terms.html"
+    };
+    const targetFile = targetPath.startsWith("/") ? routeFiles[targetPath] : (targetPath || file);
     if (!pages.has(targetFile)) continue;
     if (!pages.get(targetFile).ids.has(decodeURIComponent(fragment))) {
-      fail(file + ": link \"" + value + "\" points to missing ID #" + fragment + " in " + targetFile);
+      fail(file + ": link \\"" + value + "\\" points to missing ID #" + fragment + " in " + targetFile);
     }
   }
 }
@@ -93,8 +110,8 @@ const sitemapPath = resolve(root, "sitemap.xml");
 const robotsPath = resolve(root, "robots.txt");
 if (existsSync(sitemapPath)) {
   const sitemap = readFileSync(sitemapPath, "utf8");
-  for (const page of ["services.html", "work.html", "about.html", "packages.html", "contact.html", "privacy.html"]) {
-    if (!sitemap.includes(page)) fail("sitemap.xml is missing " + page);
+  for (const page of ["/services</loc>", "/work</loc>", "/about</loc>", "/packages</loc>", "/contact</loc>", "/privacy</loc>"]) {
+    if (!sitemap.includes(page)) fail("sitemap.xml is missing clean URL " + page.replace("</loc>", ""));
   }
   pass("Sitemap includes the dedicated studio pages");
 } else fail("Missing sitemap.xml");
