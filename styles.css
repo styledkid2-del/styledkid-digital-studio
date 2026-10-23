@@ -2497,3 +2497,14 @@ input, select, textarea {
     animation: none !important;
   }
 }
+
+@media (prefers-contrast: more) {
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline-width: 4px;
+  }
+}
+.site-footer :focus-visible,
+.button-dark:focus-visible,
+.nav-cta:focus-visible {
+  outline-color: #d9e8d5;
+}
