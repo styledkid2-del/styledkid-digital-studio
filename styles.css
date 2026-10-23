@@ -2457,3 +2457,43 @@ textarea { resize: vertical; }
     padding: 0;
   }
 }
+
+
+/* Site-wide finishing pass: keyboard clarity, resilient forms, and motion preferences. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid #8b5a3c;
+  outline-offset: 4px;
+}
+:where(.site-header, main, .site-footer) :target {
+  scroll-margin-top: 104px;
+}
+button:disabled,
+.button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: .62;
+  transform: none;
+}
+input, select, textarea {
+  accent-color: #526b49;
+}
+::selection {
+  background: #dce9d5;
+  color: #20221d;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .ticker div {
+    width: auto;
+    padding-inline: 5%;
+    white-space: normal;
+    text-align: center;
+    animation: none !important;
+  }
+}
