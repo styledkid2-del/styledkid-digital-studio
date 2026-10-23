@@ -2277,3 +2277,104 @@ textarea { resize: vertical; }
 @media (prefers-reduced-motion: reduce) {
   .footer-links-group a, .footer-email, .footer-whatsapp, .footer-socials a { transition: none; }
 }
+
+
+/* Accessible cookie-consent panel: optional analytics stays off until accepted. */
+.cookie-consent[hidden], .cookie-settings-trigger[hidden] { display: none !important; }
+.cookie-consent {
+  position: fixed;
+  z-index: 10000;
+  right: 20px;
+  bottom: 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 22px;
+  width: min(760px, calc(100vw - 40px));
+  padding: 22px 24px;
+  border: 1px solid rgba(248,245,235,.22);
+  background: #173c31;
+  color: #f8f5eb;
+  box-shadow: 0 16px 50px rgba(15,29,24,.28);
+}
+.cookie-consent-copy { min-width: 0; }
+.cookie-consent-eyebrow {
+  margin: 0 0 7px;
+  color: #d9e8d5;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+.cookie-consent h2 {
+  margin: 0 0 7px;
+  color: #fffdf7;
+  font-family: var(--display);
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -.04em;
+}
+.cookie-consent-copy > p:last-child {
+  max-width: 52ch;
+  margin: 0;
+  color: rgba(248,245,235,.84);
+  font-size: 11px;
+  line-height: 1.65;
+}
+.cookie-consent a {
+  color: #fffdf7;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cookie-consent-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 142px;
+}
+.cookie-consent-actions button, .cookie-settings-trigger {
+  min-height: 42px;
+  border: 1px solid rgba(248,245,235,.55);
+  border-radius: 0;
+  padding: 10px 13px;
+  font: 700 11px/1.3 var(--body);
+  cursor: pointer;
+}
+.cookie-consent-reject { background: transparent; color: #f8f5eb; }
+.cookie-consent-accept { background: #f8f5eb; color: #173c31; }
+.cookie-consent-actions button:hover { filter: brightness(.94); }
+.cookie-consent button:focus-visible, .cookie-settings-trigger:focus-visible {
+  outline: 3px solid #d9e8d5;
+  outline-offset: 3px;
+}
+.cookie-settings-trigger {
+  position: fixed;
+  z-index: 9998;
+  left: 16px;
+  bottom: 16px;
+  min-height: 36px;
+  padding: 8px 11px;
+  border-color: rgba(248,245,235,.24);
+  background: #173c31;
+  color: #f8f5eb;
+  box-shadow: 0 4px 14px rgba(15,29,24,.18);
+  font-size: 10px;
+}
+@media (max-width: 620px) {
+  .cookie-consent {
+    right: 10px;
+    bottom: 10px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+    width: calc(100vw - 20px);
+    max-height: min(82vh, 520px);
+    overflow-y: auto;
+    padding: 19px;
+  }
+  .cookie-consent h2 { font-size: 21px; }
+  .cookie-consent-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); min-width: 0; }
+  .cookie-consent-actions button { padding-inline: 8px; }
+  .cookie-settings-trigger { left: 10px; bottom: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cookie-consent, .cookie-consent * { scroll-behavior: auto; transition: none; }
+}
