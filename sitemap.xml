@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://kioo-studio.vercel.app/</loc></url>
-  <url><loc>https://kioo-studio.vercel.app/services.html</loc></url>
-  <url><loc>https://kioo-studio.vercel.app/work.html</loc></url>
-  <url><loc>https://kioo-studio.vercel.app/about.html</loc></url>
-  <url><loc>https://kioo-studio.vercel.app/packages.html</loc></url>
-  <url><loc>https://kioo-studio.vercel.app/contact.html</loc></url>
-  <url><loc>https://kioo-studio.vercel.app/website-care.html</loc></url>
-  <url><loc>https://kioo-studio.vercel.app/resources.html</loc></url>
-  <url><loc>https://kioo-studio.vercel.app/privacy.html</loc></url>
-  <url><loc>https://kioo-studio.vercel.app/cookie-policy.html</loc></url>
-  <url><loc>https://kioo-studio.vercel.app/terms.html</loc></url>
+  <url><loc>https://kioo-studio.vercel.app/services</loc></url>
+  <url><loc>https://kioo-studio.vercel.app/work</loc></url>
+  <url><loc>https://kioo-studio.vercel.app/about</loc></url>
+  <url><loc>https://kioo-studio.vercel.app/packages</loc></url>
+  <url><loc>https://kioo-studio.vercel.app/contact</loc></url>
+  <url><loc>https://kioo-studio.vercel.app/website-care</loc></url>
+  <url><loc>https://kioo-studio.vercel.app/resources</loc></url>
+  <url><loc>https://kioo-studio.vercel.app/privacy</loc></url>
+  <url><loc>https://kioo-studio.vercel.app/cookie-policy</loc></url>
+  <url><loc>https://kioo-studio.vercel.app/terms</loc></url>
 </urlset>
