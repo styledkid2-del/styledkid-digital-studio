@@ -2421,3 +2421,39 @@ textarea { resize: vertical; }
   .cookie-consent h2 { font-size: 18px; }
   .cookie-consent-actions button { padding-inline: 8px; font-size: 10px; }
 }
+
+
+/* Keep Cookie settings discreet in the footer instead of floating over page content. */
+.site-footer .cookie-settings-trigger {
+  position: static;
+  display: block;
+  width: fit-content;
+  min-height: 0;
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(248,245,235,.76);
+  box-shadow: none;
+  font: 400 12px/1.6 var(--sans);
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+.site-footer .cookie-settings-trigger:hover {
+  background: transparent;
+  color: #fffdf7;
+  box-shadow: none;
+}
+.site-footer .cookie-settings-trigger:focus-visible {
+  outline: 2px solid #d9e8d5;
+  outline-offset: 4px;
+}
+@media (max-width: 620px) {
+  .site-footer .cookie-settings-trigger {
+    margin-top: 10px;
+    padding: 0;
+  }
+}
