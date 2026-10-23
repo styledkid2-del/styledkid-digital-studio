@@ -37,13 +37,13 @@ function initialiseCookieConsent() {
   panel.setAttribute("aria-describedby", "cookie-consent-copy");
   panel.innerHTML = `
     <div class="cookie-consent-copy">
-      <p class="cookie-consent-eyebrow">YOUR PRIVACY, YOUR CHOICE</p>
-      <h2>Cookies &amp; optional analytics</h2>
-      <p id="cookie-consent-copy">We use privacy-focused, optional analytics to understand which parts of our website are useful. Choose whether to allow analytics. You can change your choice anytime in Cookie settings. <a href="/cookie-policy">Read our cookie notice</a>.</p>
+      <p class="cookie-consent-eyebrow">A SMALL CHOICE, WITH CONTROL</p>
+      <h2>Your privacy matters</h2>
+      <p id="cookie-consent-copy">Optional analytics helps us understand which pages are useful. It stays off unless you allow it. Change your choice anytime in Cookie settings. <a href="/cookie-policy">Cookie notice</a>.</p>
     </div>
     <div class="cookie-consent-actions">
       <button type="button" class="cookie-consent-reject">Reject optional</button>
-      <button type="button" class="cookie-consent-accept">Accept analytics</button>
+      <button type="button" class="cookie-consent-accept">Allow analytics</button>
     </div>`;
   const settings = document.createElement("button");
   settings.type = "button";
